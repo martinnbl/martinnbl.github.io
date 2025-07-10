@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martín Bustos Leal - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header-text .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: #f1f3f4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #e9ecef;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            border: 2px solid #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Learning Section */
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .learning-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .learning-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .learning-item p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .learning-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Chatbot Section */
+        .chatbot-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .chatbot-header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .message.user .message-avatar {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .message-content {
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 18px;
+            max-width: 75%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 0.3rem;
+        }
+
+        .quick-questions {
+            padding: 1rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .quick-questions h4 {
+            margin: 0 0 0.8rem 0;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .question-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .question-btn {
+            background: #f1f3f4;
+            border: none;
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #555;
+        }
+
+        .question-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .chat-input-group {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            outline: none;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: #5a67d8;
+        }
+
+        .send-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 0.8rem 1rem;
+            background: white;
+            border-radius: 18px;
+            max-width: 75%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #667eea;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        .contact-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://via.placeholder.com/120x120/667eea/ffffff?text=ML" alt="Martín Bustos Leal" class="profile-img">
+                <div class="header-text">
+                    <h1>Martín Bustos Leal</h1>
+                    <p class="tagline">Digital Product Owner & Business Analytics Expert</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/martinnbl" target="_blank">LinkedIn</a>
+                        <a href="mailto:martin.leal.24@ucl.ac.uk">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#learning">Learning</a>
+                <a href="#chatbot">Chatbot</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>Digital Product Owner with 6+ years at P&G leading scalable, data-driven products across IT, sales, and analytics. Strong experience with Salesforce, agile delivery, and stakeholder management in retail environments.</p>
+                <p>Currently completing my MSc in Business Analytics at UCL, specializing in AI-powered solutions and predictive modelling. I've successfully delivered mobile applications to 600+ users and managed digital initiatives across 3 markets, achieving 27% efficiency improvements.</p>
+                <p>When I'm not analyzing data or building products, you can find me playing the French Horn with Camden Philharmonia Orchestra, cycling with UCL Cycling Society, or training for triathlons and half-marathons.</p>
+                <p>My passion lies in leveraging technical expertise and business acumen to drive data-informed decision-making and product innovation that makes a real impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Knime</span>
+                        <span class="skill-tag">Matplotlib</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Supervised Learning</span>
+                        <span class="skill-tag">Unsupervised Learning</span>
+                        <span class="skill-tag">Time Series Forecasting</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Predictive Analytics</span>
+                        <span class="skill-tag">LLMs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Platforms & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Salesforce</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">N8N</span>
+                        <span class="skill-tag">dbt</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Product & Project Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile Methodology</span>
+                        <span class="skill-tag">Product Ownership</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Strategic Planning</span>
+                        <span class="skill-tag">Data-Driven Decision Making</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        Social Media Analytics Pipeline
+                    </div>
+                    <div class="project-content">
+                        <h3>Social Media Engagement Analytics Pipeline</h3>
+                        <p>End-to-end social media engagement metrics pipeline enabling smart contract-based payments. Architected data ingestion from APIs (Instagram, X/Twitter) with Python and N8N workflows.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">N8N</span>
+                            <span class="tech-tag">GCP</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Case Study</a>
+                            <a href="#" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Salesforce Mobile App
+                    </div>
+                    <div class="project-content">
+                        <h3>In-Store Execution Mobile App</h3>
+                        <p>Led end-to-end delivery of a Salesforce-based mobile app for field execution tracking. Successfully rolled out to 600+ users across Chile, Peru, and Colombia, improving execution tracking efficiency.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Salesforce</span>
+                            <span class="tech-tag">Mobile Development</span>
+                            <span class="tech-tag">Analytics</span>
+                            <span class="tech-tag">Agile</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Case Study</a>
+                            <a href="#" target="_blank">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Predictive Analytics
+                    </div>
+                    <div class="project-content">
+                        <h3>Customer Lifetime Value Prediction</h3>
+                        <p>Built predictive CLV models using machine learning techniques. Applied ML for sales forecasting and integrated LLMs for AI research assistants as part of UCL Business Analytics program.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Predictive Analytics</span>
+                            <span class="tech-tag">LLMs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Report</a>
+                            <a href="#" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Data Integration Platform
+                    </div>
+                    <div class="project-content">
+                        <h3>Multi-Market Data Foundation</h3>
+                        <p>Owned digital data foundation strategy across Chile, Peru, and Colombia. Reduced manual effort by 27% through process digitization and maintained >95% data quality across markets.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Data Engineering</span>
+                            <span class="tech-tag">ETL</span>
+                            <span class="tech-tag">Business Intelligence</span>
+                            <span class="tech-tag">Process Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Case Study</a>
+                            <a href="#" target="_blank">Results</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section id="learning">
+        <div class="container">
+            <h2 class="section-title">Learning Journey</h2>
+            <div class="learning-grid">
+                <div class="learning-item">
+                    <h3>MSc Business Analytics at UCL</h3>
+                    <p>Currently completing my Master's degree focusing on Programming, Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. Building expertise in AI-powered solutions.</p>
+                    <span class="learning-date">Sep 2024 - Sep 2025</span>
+                </div>
+                <div class="learning-item">
+                    <h3>AI-Powered Chatbots & NLP</h3>
+                    <p>Implementing advanced NLP techniques to process unstructured data into JSON for contract validation. Working with large language models and conversational AI systems for business applications.</p>
+                    <span class="learning-date">Ongoing - 2024</span>
+                </div>
+                <div class="learning-item">
+                    <h3>Cloud Infrastructure & Data Engineering</h3>
+                    <p>Building scalable data warehousing solutions using GCP, implementing SQL query generation, and creating interactive dashboards with dbt-generated models for enterprise applications.</p>
+                    <span class="learning-date">Current Focus - 2024</span>
+                </div>
+                <div class="learning-item">
+                    <h3>Product Management Certifications</h3>
+                    <p>Achieved Salesforce Certified Administrator (2020) and Registered Scrum Product Owner (2021) certifications. Continuously updating knowledge in agile methodologies and digital product strategy.</p>
+                    <span class="learning-date">Ongoing Professional Development</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot">
+        <div class="container">
+            <h2 class="section-title">Ask Me Anything</h2>
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3>💬 Chat with Martín</h3>
+                    <p>Ask me about my experience, skills, projects, or anything else!</p>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        <div class="message-avatar">ML</div>
+                        <div>
+                            <div class="message-content">
+                                Hi! I'm Martín's virtual assistant. I can answer questions about his experience at P&G, his current studies at UCL, his technical skills, or his projects. What would you like to know?
+                            </div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="message-avatar">ML</div>
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+
+                <div class="quick-questions">
+                    <h4>Quick Questions:</h4>
+                    <div class="question-buttons">
+                        <button class="question-btn" onclick="askQuestion('Tell me about your P&G experience')">P&G Experience</button>
+                        <button class="question-btn" onclick="askQuestion('What are you studying at UCL?')">UCL Studies</button>
+                        <button class="question-btn" onclick="askQuestion('What programming languages do you know?')">Technical Skills</button>
+                        <button class="question-btn" onclick="askQuestion('Tell me about your projects')">Projects</button>
+                        <button class="question-btn" onclick="askQuestion('What are your career goals?')">Career Goals</button>
+                        <button class="question-btn" onclick="askQuestion('Tell me about your hobbies')">Personal Interests</button>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-group">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Type your question here..." onkeypress="handleKeyPress(event)">
+                        <button class="send-btn" onclick="sendMessage()" id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always open to discussing new opportunities in Product Management, Data Analytics, and Strategic Planning. Whether you're interested in collaboration, have questions about my work, or want to chat about data-driven innovation, feel free to reach out!</p>
+                <div class="contact-info">
+                    <a href="mailto:martin.leal.24@ucl.ac.uk">📧 martin.leal.24@ucl.ac.uk</a>
+                    <a href="https://linkedin.com/in/martinnbl" target="_blank">💼 LinkedIn</a>
+                    <a href="tel:+447553706714">📱 +44 7553 706714</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Martín Bustos Leal. Built with passion for data-driven innovation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-container a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotResponses = {
+            // P&G Experience
+            "p&g": "I worked at P&G for 6+ years, progressing from Sales Intern to Senior Digital Product Owner. I led digital initiatives across Chile, Peru, and Colombia, managed data operations teams, and delivered a Salesforce mobile app to 600+ field users. I achieved 27% efficiency improvements through process digitization and maintained >95% data quality across markets.",
+            
+            "procter": "I worked at P&G for 6+ years, progressing from Sales Intern to Senior Digital Product Owner. I led digital initiatives across Chile, Peru, and Colombia, managed data operations teams, and delivered a Salesforce mobile app to 600+ field users. I achieved 27% efficiency improvements through process digitization and maintained >95% data quality across markets.",
+            
+            "experience": "I have 6+ years of experience at P&G leading scalable, data-driven products across IT, sales, and analytics. I've also worked as a Data Analytics & Product Consultant at PROOFofBRAND Agency, designing end-to-end social media engagement metrics pipelines. Currently completing my MSc in Business Analytics at UCL.",
+
+            // UCL Studies
+            "ucl": "I'm currently pursuing my MSc in Business Analytics at UCL (University College London), expected to graduate in September 2025. My key modules include Programming, Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. I've built predictive CLV models and applied ML for sales forecasting.",
+            
+            "study": "I'm currently pursuing my MSc in Business Analytics at UCL (University College London), expected to graduate in September 2025. My key modules include Programming, Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. I've built predictive CLV models and applied ML for sales forecasting.",
+            
+            "analytics": "I'm specializing in Business Analytics at UCL, focusing on AI-powered solutions and predictive modelling. I work with Python, R, SQL, machine learning algorithms, and have experience building predictive models for customer lifetime value and sales forecasting.",
+
+            // Technical Skills
+            "programming": "I'm proficient in Python, R, and SQL for data analysis. I also work with Power BI, Tableau, Knime, and Matplotlib for visualization. For machine learning, I have experience with supervised/unsupervised learning, time series forecasting, NLP, and LLMs. I'm also skilled in Salesforce, Google Cloud, and various product management tools.",
+            
+            "python": "Yes, I'm proficient in Python! I use it for data analytics, machine learning projects, API integrations, and building data pipelines. I've used Python extensively in my current role at PROOFofBRAND for social media data ingestion and NLP processing, as well as in my UCL studies for predictive modeling.",
+            
+            "skills": "My technical skills span programming (Python, R, SQL), data visualization (Power BI, Tableau), machine learning (supervised/unsupervised learning, NLP), cloud platforms (Google Cloud), and product management tools (Salesforce, Jira, N8N). I'm also certified in Salesforce Administration and Scrum Product Ownership.",
+
+            // Projects
+            "projects": "I've led several key projects: 1) Social Media Analytics Pipeline with Python/GCP for smart contract payments, 2) Salesforce mobile app for 600+ field users at P&G, 3) Predictive CLV models using ML at UCL, and 4) Multi-market data foundation across Chile, Peru, and Colombia achieving 27% efficiency improvements.",
+            
+            "salesforce": "I led the end-to-end delivery of a Salesforce-based mobile app for in-store execution tracking at P&G. The app was successfully rolled out to over 600 field users across Chile, Peru, and Colombia, significantly improving execution tracking efficiency. I'm also a certified Salesforce Administrator.",
+
+            // Career Goals
+            "goals": "I'm seeking opportunities in Product Management, Product Ownership, Data Analytics, and Strategic Planning. My goal is to leverage my technical expertise and business acumen to drive data-informed decision-making and product innovation that creates real business impact.",
+            
+            "career": "I'm seeking opportunities in Product Management, Product Ownership, Data Analytics, and Strategic Planning. My goal is to leverage my technical expertise and business acumen to drive data-informed decision-making and product innovation that creates real business impact.",
+
+            // Personal Interests
+            "hobbies": "Outside of work, I'm quite active! I play the French Horn with Camden Philharmonia Orchestra, participate in cycling with UCL Cycling Society, and compete in triathlons. I've completed half-marathons (best time: 1:44) and Olympic Triathlons (best time: 2:51). I'm also a member of PEAC Triathlon Club.",
+            
+            "music": "I play the French Horn and I'm an active member of Camden Philharmonia Orchestra in London. Music has always been a passion of mine and it's a great way to balance my analytical work with creative expression.",
+            
+            "sports": "I'm very active in sports! I cycle with UCL Cycling Society, compete in triathlons and half-marathons. My best half-marathon time is 1:44 and my best Olympic Triathlon time is 2:51. I'm a member of PEAC Triathlon Club.",
+
+            // General
+            "hello": "Hello! I'm Martín Bustos Leal, a Digital Product Owner with 6+ years of experience at P&G and currently pursuing my MSc in Business Analytics at UCL. I specialize in data-driven product development, analytics, and AI-powered solutions. What would you like to know about my background?",
+            
+            "hi": "Hi there! I'm Martín, a Digital Product Owner and Business Analytics expert. I've spent 6+ years at P&G leading data-driven initiatives and I'm currently studying at UCL. Feel free to ask me about my experience, projects, or technical skills!",
+
+            "contact": "You can reach me at martin.leal.24@ucl.ac.uk or call me at +44 7553 706714. I'm also on LinkedIn at linkedin.com/in/martinnbl. I'm based in London and always open to discussing new opportunities in Product Management and Data Analytics!"
+        };
+
+        function getResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Check for key words in the message
+            for (const [key, response] of Object.entries(chatbotResponses)) {
+                if (lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+            
+            // Default responses for common questions
+            if (lowerMessage.includes('who are you') || lowerMessage.includes('about yourself')) {
+                return chatbotResponses.hello;
+            }
+            
+            if (lowerMessage.includes('what do you do') || lowerMessage.includes('your job')) {
+                return "I'm a Digital Product Owner with expertise in data analytics and business intelligence. I've led digital initiatives at P&G for 6+ years and currently work as a Data Analytics Consultant while completing my MSc at UCL. I specialize in building data-driven products and AI-powered solutions.";
+            }
+            
+            if (lowerMessage.includes('education') || lowerMessage.includes('degree')) {
+                return "I have an Industrial Civil Engineering degree from Adolfo Ibáñez University in Chile (2014-2018) and I'm currently completing my MSc in Business Analytics at UCL in London (2024-2025). My capstone project at university was a Promotional Tracking Tool using Salesforce and Power BI for P&G.";
+            }
+            
+            if (lowerMessage.includes('location') || lowerMessage.includes('where')) {
+                return "I'm currently based in London, UK at 8 Barnfield Place. I moved here for my studies at UCL and I'm open to opportunities in London and internationally.";
+            }
+            
+            // Default response
+            return "That's an interesting question! While I have information about Martín's experience at P&G, his UCL studies, technical skills, projects, and personal interests, I might not have specific details about that topic. Feel free to ask about his work experience, education, technical skills, projects, or career goals. You can also contact him directly at martin.leal.24@ucl.ac.uk for more detailed discussions!";
+        }
+
+        function addMessage(content, isUser = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${isUser ? 'You' : 'ML'}</div>
+                <div>
+                    <div class="message-content">${content}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            indicator.style.display = 'flex';
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').style.display = 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            addMessage(message, true);
+            input.value = '';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Simulate delay and respond
+            setTimeout(() => {
+                hideTypingIndicator();
+                const response = getResponse(message);
+                addMessage(response);
+            }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+        }
+
+        function askQuestion(question) {
+            document.getElementById('chatInput').value = question;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Initialize chatbot
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-scroll to chat messages when chatbot section is visible
+            const chatSection = document.getElementById('chatbot');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+                    }
+                });
+            });
+            observer.observe(chatSection);
+        });
+    </script>
+</body>
+</html>
