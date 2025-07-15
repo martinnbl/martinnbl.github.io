@@ -839,6 +839,39 @@
         .pm-button .pm-icon {
             font-size: 1.2rem;
                 }
+        /* CV Download Buttons */
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: #002147;
+            font-weight: 500;
+            border: 2px solid #002147;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .cv-button:hover {
+            background: #002147;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .cv-icon {
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .cv-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        
     </style>
 </head>
 <body>
@@ -1503,10 +1536,19 @@
                     <a href="tel:+447553706714">📱 +44 7553 706714</a>
                 </div>
                 <p style="margin-top: 2rem; font-style: italic; color: #666;">
-                    📍 Currently based in London, UK | Open to opportunities in London and internationally | Available for immediate discussions
+                    📍 Chilean currently based in London, UK 
                 </p>
             </div>
         </div>
+                <!-- Add this inside your contact section -->
+        <div class="cv-downloads" style="margin-top: 2rem;">
+            <h4 style="color: #002147; margin-bottom: 1rem;">Download Resume</h4>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="./cv-english.pdf" download class="cv-button">🇬🇧 English CV</a>
+                <a href="./cv-spanish.pdf" download class="cv-button">🇪🇸 CV en Español</a>
+            </div>
+        </div>
+        
     </section>
     
 <!-- Calendly inline widget begin -->
@@ -1783,7 +1825,25 @@
                 pmButton.addEventListener('mouseleave', function() {
                     this.style.boxShadow = 'none';
                 });
-            }    
+            }   
+            // Track CV Download
+            const cvButtons = document.querySelectorAll('.cv-button');
+            cvButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.15)';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                });
+                
+                // Track downloads (optional)
+                button.addEventListener('click', function() {
+                    const language = this.textContent.includes('English') ? 'English' : 'Spanish';
+                    console.log(`CV downloaded in ${language}`);
+                    // You can add Google Analytics tracking here if you have it
+                });
+            });
+        
 </script>
 <div class="project-management-section" style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.1); margin: 2rem auto; max-width: 800px;">
     <h3 style="color: #002147; margin-bottom: 1rem; font-size: 1.5rem;">Project Management Skills</h3>
