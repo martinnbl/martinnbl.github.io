@@ -815,6 +815,30 @@
                 margin-left: 1rem;
             }
         }
+        /* Project Management Button */
+        .pm-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: #002147;
+            font-weight: 500;
+            border: 2px solid #002147;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+                }
+
+        .pm-button:hover {
+            background: #002147;
+            color: white;
+            transform: translateY(-2px);
+            }
+
+        .pm-button .pm-icon {
+            font-size: 1.2rem;
+                }
     </style>
 </head>
 <body>
@@ -1749,6 +1773,17 @@
                 });
             });
         });
+
+            // Add this inside your existing DOMContentLoaded function
+            const pmButton = document.querySelector('.pm-button');
+            if (pmButton) {
+                pmButton.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.15)';
+                });
+                pmButton.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                });
+            }    
     </script>
 <div class="project-management-section">
     <h3>Project Management Skills</h3>
@@ -1758,7 +1793,7 @@
     <a href="https://www.notion.so/23149013680f803e95d9f5fd73c05cfe?v=23149013680f800ea0d3000cc701d731&source=copy_link" 
        target="_blank" 
        class="pm-button">
-        🚀 View Live Project Board
+         View Live Project Board
     </a>
 
     </div>
