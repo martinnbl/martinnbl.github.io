@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martín Bustos Leal - Portfolio</title>
+    <title>Martín Bustos Leal - Senior Product Manager Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #002147 0%, #0f4c75 100%);
             color: white;
             padding: 2rem 0;
             position: relative;
@@ -47,6 +47,12 @@
             border-radius: 50%;
             border: 4px solid rgba(255,255,255,0.3);
             object-fit: cover;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
         .header-text h1 {
@@ -58,6 +64,12 @@
         .header-text .tagline {
             font-size: 1.2rem;
             opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
             margin-bottom: 1rem;
         }
 
@@ -106,7 +118,7 @@
         }
 
         .nav-container a:hover {
-            background: #667eea;
+            background: #002147;
             color: white;
         }
 
@@ -132,7 +144,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #002147, #0f4c75);
             border-radius: 2px;
         }
 
@@ -142,7 +154,6 @@
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-            text-align: center;
         }
 
         .about-content p {
@@ -152,10 +163,121 @@
             color: #555;
         }
 
+        .highlight-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #002147;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, #002147, #0f4c75);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #002147;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #002147;
+        }
+
+        .timeline-date {
+            color: #002147;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .timeline-company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .achievement-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .achievement-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #002147;
+            font-weight: bold;
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -165,27 +287,32 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-            text-align: center;
         }
 
         .skill-category h3 {
             margin-bottom: 1rem;
-            color: #667eea;
+            color: #002147;
+            font-size: 1.2rem;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            justify-content: center;
         }
 
         .skill-tag {
             background: #f1f3f4;
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.9rem;
             color: #555;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #002147;
+            color: white;
         }
 
         /* Projects Section */
@@ -210,12 +337,13 @@
         .project-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #002147, #0f4c75);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.2rem;
+            font-weight: bold;
         }
 
         .project-content {
@@ -230,6 +358,25 @@
         .project-content p {
             color: #666;
             margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-metrics {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .project-metrics h4 {
+            color: #002147;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metrics-list {
+            font-size: 0.85rem;
+            color: #555;
         }
 
         .project-tech {
@@ -254,17 +401,104 @@
 
         .project-links a {
             text-decoration: none;
-            color: #667eea;
+            color: #002147;
             font-weight: 500;
-            border: 2px solid #667eea;
+            border: 2px solid #002147;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .project-links a:hover {
-            background: #667eea;
+            background: #002147;
             color: white;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .education-item h3 {
+            color: #002147;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .education-institution {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .education-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-list {
+            margin: 1rem 0;
+        }
+
+        .course-list h4 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .course-tag {
+            background: #f1f3f4;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-item h4 {
+            color: #002147;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-id {
+            font-size: 0.8rem;
+            color: #999;
         }
 
         /* Learning Section */
@@ -282,7 +516,7 @@
         }
 
         .learning-item h3 {
-            color: #667eea;
+            color: #002147;
             margin-bottom: 1rem;
         }
 
@@ -294,6 +528,7 @@
         .learning-date {
             color: #999;
             font-size: 0.9rem;
+            font-style: italic;
         }
 
         /* Chatbot Section */
@@ -307,7 +542,7 @@
         }
 
         .chatbot-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #002147 0%, #0f4c75 100%);
             color: white;
             padding: 1.5rem;
             text-align: center;
@@ -355,7 +590,7 @@
         }
 
         .message.bot .message-avatar {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #002147, #0f4c75);
             color: white;
         }
 
@@ -373,7 +608,7 @@
         }
 
         .message.user .message-content {
-            background: #667eea;
+            background: #002147;
             color: white;
         }
 
@@ -412,7 +647,7 @@
         }
 
         .question-btn:hover {
-            background: #667eea;
+            background: #002147;
             color: white;
         }
 
@@ -438,11 +673,11 @@
         }
 
         .chat-input:focus {
-            border-color: #667eea;
+            border-color: #002147;
         }
 
         .send-btn {
-            background: #667eea;
+            background: #002147;
             color: white;
             border: none;
             padding: 0.8rem 1.2rem;
@@ -453,7 +688,7 @@
         }
 
         .send-btn:hover {
-            background: #5a67d8;
+            background: #0f4c75;
         }
 
         .send-btn:disabled {
@@ -479,7 +714,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #667eea;
+            background: #002147;
             animation: typing 1.4s infinite ease-in-out;
         }
 
@@ -501,6 +736,7 @@
                 opacity: 1;
             }
         }
+
         .contact-content {
             background: white;
             padding: 3rem;
@@ -517,7 +753,7 @@
         }
 
         .contact-info a {
-            color: #667eea;
+            color: #002147;
             text-decoration: none;
             font-weight: 500;
             display: flex;
@@ -554,8 +790,20 @@
                 gap: 1rem;
             }
 
-            .projects-grid {
+            .projects-grid, .education-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .highlight-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                margin-left: 1rem;
             }
         }
     </style>
@@ -565,10 +813,11 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="profile.jpeg" alt="Martín Bustos Leal" class="profile-img">
+                <div class="profile-img">ML</div>
                 <div class="header-text">
                     <h1>Martín Bustos Leal</h1>
-                    <p class="tagline">Digital Product Owner & Business Analytics Expert</p>
+                    <p class="tagline">Product Manager & Business Analytics Specialist</p>
+                    <p class="subtitle">6+ Years at P&G | MSc Business Analytics Student at UCL | Data-Driven Product Development</p>
                     <div class="social-links">
                         <a href="#" target="_blank">GitHub</a>
                         <a href="https://linkedin.com/in/martinnbl" target="_blank">LinkedIn</a>
@@ -584,10 +833,11 @@
         <div class="container">
             <div class="nav-container">
                 <a href="#about">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#learning">Learning</a>
-                <a href="#chatbot">Chatbot</a>
+                <a href="#education">Education</a>
+                <a href="#chatbot">Ask Me</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -598,10 +848,124 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p>Digital Product Owner with 6+ years at P&G leading scalable, data-driven products across IT, sales, and analytics. Strong experience with Salesforce, agile delivery, and stakeholder management in retail environments.</p>
-                <p>Currently completing my MSc in Business Analytics at UCL, specializing in AI-powered solutions and predictive modelling. I've successfully delivered mobile applications to 600+ users and managed digital initiatives across 3 markets, achieving 27% efficiency improvements.</p>
-                <p>When I'm not analyzing data or building products, you can find me playing the French Horn with Camden Philharmonia Orchestra, cycling with UCL Cycling Society, or training for triathlons and half-marathons.</p>
-                <p>My passion lies in leveraging technical expertise and business acumen to drive data-informed decision-making and product innovation that makes a real impact.</p>
+                <p><strong>Product Manager</strong> with 6+ years building and scaling data-driven products for global enterprise environments. Proven track record delivering mobile applications to 600+ users across 3 markets, achieving 27% operational efficiency gains through product innovation.</p>
+                
+                <div class="highlight-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">600+</span>
+                        <span class="stat-label">Users Served</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">27%</span>
+                        <span class="stat-label">Efficiency Improvement</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Markets Led</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%+</span>
+                        <span class="stat-label">Data Quality</span>
+                    </div>
+                </div>
+
+                <p>Strong technical background with expertise in API integrations, AI/ML implementations, and stakeholder alignment. Currently completing <strong>MSc in Business Analytics at University College London</strong>, specializing in AI-powered product solutions and advanced analytics.</p>
+                
+                <p>My unique combination includes growing technical expertise (Python, R, SQL, machine learning), enterprise product management experience (Salesforce, agile methodologies, cross-functional leadership), and proven business impact across Latin American markets.</p>
+                
+                <p>When I'm not analyzing data or building products, you can find me playing the <strong>French Horn with Camden Philharmonia Orchestra</strong>, cycling with UCL Cycling Society, or training for triathlons (PB: 2:51 Olympic distance) and half-marathons (PB: 1:44).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025 - August 2025 (Expected)</div>
+                    <div class="timeline-title">Data Analytics & Product Consultant</div>
+                    <div class="timeline-company">PROOFofBRAND Agency, London, UK</div>
+                    <div class="timeline-description">
+                        Leading end-to-end AI-powered social media engagement metrics pipeline for influencer marketing automation and smart contract-based payments.
+                    </div>
+                    <ul class="achievement-list">
+                        <li>Architecting data ingestion from multiple APIs (Instagram, X/Twitter) using Python and N8N workflows</li>
+                        <li>Implementing AI-powered chatbots and NLP solutions for contract validation</li>
+                        <li>Building scalable cloud infrastructure using Google Cloud Platform</li>
+                        <li>Creating automated payment systems based on verified performance metrics</li>
+                        <li>Developing interactive dashboards with dbt-generated models for client analytics</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">August 2022 - August 2024</div>
+                    <div class="timeline-title">Senior Digital Product Owner & IT Sales Delivery Manager</div>
+                    <div class="timeline-company">Procter & Gamble, Santiago, Chile</div>
+                    <div class="timeline-description">
+                        Owned digital data foundation product strategy across Chile, Peru, and Colombia, leading cross-market initiatives and achieving significant operational improvements.
+                    </div>
+                    <ul class="achievement-list">
+                        <li>Reduced manual effort by <strong>27%</strong> through comprehensive process digitization initiatives</li>
+                        <li>Led data operations team ensuring data quality exceeded <strong>95%</strong> across three markets</li>
+                        <li>Achieved <strong>>80% wellbeing score</strong> through organizational engagement initiatives</li>
+                        <li>Enabled <strong>30% of sales employees</strong> to adopt new digital tools through upskilling programs</li>
+                        <li>Earned Eagle Eye recognition for exceptional talent acquisition (1:1 interview-to-hire ratio)</li>
+                        <li>Managed portfolio of digital initiatives aligned with commercial leadership priorities</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2020 - July 2022</div>
+                    <div class="timeline-title">Local Product Owner & IT Delivery Manager</div>
+                    <div class="timeline-company">Procter & Gamble, Santiago, Chile</div>
+                    <div class="timeline-description">
+                        Served as Product Owner for Salesforce-based mobile application while managing comprehensive data operations and analytics initiatives.
+                    </div>
+                    <ul class="achievement-list">
+                        <li>Successfully rolled out mobile app to <strong>600+ field users</strong> with 95%+ adoption rate</li>
+                        <li>Designed product vision and user stories using agile methodologies</li>
+                        <li>Maintained <strong>>90% data quality</strong> through comprehensive pipeline management</li>
+                        <li>Became <strong>Salesforce Certified Administrator</strong> to support platform capabilities</li>
+                        <li>Established company-wide best practices for Key Business Driver reviews</li>
+                        <li>Built automated data pipelines using KNIME reducing manual processes by <strong>90%</strong></li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2019 - February 2020</div>
+                    <div class="timeline-title">Supermarkets Operations Manager</div>
+                    <div class="timeline-company">Procter & Gamble, Santiago, Chile</div>
+                    <div class="timeline-description">
+                        Led comprehensive operations for supermarket channel representing 25% of national sales, bridging commercial strategy and field execution.
+                    </div>
+                    <ul class="achievement-list">
+                        <li>Oversaw execution for <strong>25% of national sales</strong> ensuring SLA compliance</li>
+                        <li>Conducted daily field visits providing direct operational visibility</li>
+                        <li>Trained and managed third-party agencies improving execution consistency</li>
+                        <li>Led training sessions for <strong>400+ participants</strong> on commercial fundamentals</li>
+                        <li>Established data-driven approach to field execution optimization</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2018 - January 2019</div>
+                    <div class="timeline-title">Supermarkets Sales Intern</div>
+                    <div class="timeline-company">Procter & Gamble, Santiago, Chile</div>
+                    <div class="timeline-description">
+                        Joined P&G through competitive selection process, gaining foundational experience in FMCG commercial operations and developing innovative analytics solutions.
+                    </div>
+                    <ul class="achievement-list">
+                        <li>Developed competitive tracking solution adopted as company-wide standard</li>
+                        <li>Created automated reporting systems replacing manual Excel processes</li>
+                        <li>Managed account ownership for convenience store chain</li>
+                        <li>Presented solution to General Manager leading to strategic adoption</li>
+                        <li>Built foundation for university capstone thesis on promotional tracking</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
@@ -612,47 +976,81 @@
             <h2 class="section-title">Skills & Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming & Analytics</h3>
+                    <h3>Programming & Data Analytics</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Python (Advanced)</span>
+                        <span class="skill-tag">R (Advanced)</span>
+                        <span class="skill-tag">SQL (Expert)</span>
+                        <span class="skill-tag">Power BI (Expert)</span>
                         <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Knime</span>
+                        <span class="skill-tag">KNIME (Expert)</span>
                         <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">dbt</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Machine Learning & AI</h3>
+                    <h3>AI & Machine Learning</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Supervised Learning</span>
                         <span class="skill-tag">Unsupervised Learning</span>
                         <span class="skill-tag">Time Series Forecasting</span>
-                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Natural Language Processing</span>
                         <span class="skill-tag">Predictive Analytics</span>
-                        <span class="skill-tag">LLMs</span>
+                        <span class="skill-tag">Large Language Models</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Sentiment Analysis</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Platforms & Tools</h3>
+                    <h3>Cloud & Platforms</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Salesforce</span>
-                        <span class="skill-tag">Google Cloud</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">N8N</span>
-                        <span class="skill-tag">dbt</span>
-                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Google Cloud Platform</span>
+                        <span class="skill-tag">Salesforce (Certified)</span>
+                        <span class="skill-tag">API Development</span>
+                        <span class="skill-tag">N8N Workflows</span>
+                        <span class="skill-tag">Webhook Integration</span>
+                        <span class="skill-tag">Cloud Warehousing</span>
+                        <span class="skill-tag">ETL Pipelines</span>
+                        <span class="skill-tag">Data Architecture</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Product & Project Management</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Agile Methodology</span>
-                        <span class="skill-tag">Product Ownership</span>
+                        <span class="skill-tag">Scrum (Certified PO)</span>
+                        <span class="skill-tag">Product Roadmapping</span>
                         <span class="skill-tag">Stakeholder Management</span>
-                        <span class="skill-tag">Strategic Planning</span>
-                        <span class="skill-tag">Data-Driven Decision Making</span>
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">KPI Definition</span>
+                        <span class="skill-tag">Change Management</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Business Intelligence</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Dashboard Development</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Business Analytics</span>
+                        <span class="skill-tag">Performance Metrics</span>
+                        <span class="skill-tag">Data Quality Management</span>
+                        <span class="skill-tag">Competitive Intelligence</span>
+                        <span class="skill-tag">Market Analysis</span>
+                        <span class="skill-tag">Process Automation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Leadership & Communication</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Team Management</span>
+                        <span class="skill-tag">Cross-functional Leadership</span>
+                        <span class="skill-tag">Talent Acquisition</span>
+                        <span class="skill-tag">Training & Development</span>
+                        <span class="skill-tag">Executive Presentation</span>
+                        <span class="skill-tag">Multi-cultural Teams</span>
+                        <span class="skill-tag">Spanish (Native)</span>
+                        <span class="skill-tag">English (Fluent - IELTS 8.0)</span>
                     </div>
                 </div>
             </div>
@@ -664,85 +1062,302 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
+                
                 <div class="project-card">
                     <div class="project-image">
-                        Social Media Analytics Pipeline
+                        🤖 AI Social Media Pipeline
                     </div>
                     <div class="project-content">
                         <h3>Social Media Engagement Analytics Pipeline</h3>
-                        <p>End-to-end social media engagement metrics pipeline enabling smart contract-based payments. Architected data ingestion from APIs (Instagram, X/Twitter) with Python and N8N workflows.</p>
+                        <p>End-to-end AI-powered social media engagement metrics pipeline enabling smart contract-based payments for influencer marketing. Comprehensive data architecture integrating multiple social platforms with automated contract validation.</p>
+                        <div class="project-metrics">
+                            <h4>Key Achievements:</h4>
+                            <div class="metrics-list">
+                                • Automated contract validation using NLP<br>
+                                • Multi-API data integration (Instagram, X/Twitter)<br>
+                                • Smart contract payment automation<br>
+                                • Real-time performance monitoring dashboards
+                            </div>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">N8N</span>
-                            <span class="tech-tag">GCP</span>
                             <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">GCP</span>
+                            <span class="tech-tag">N8N</span>
                             <span class="tech-tag">APIs</span>
+                            <span class="tech-tag">dbt</span>
+                            <span class="tech-tag">Webhooks</span>
                         </div>
                         <div class="project-links">
                             <a href="#" target="_blank">Case Study</a>
-                            <a href="#" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Technical Details</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
-                        Salesforce Mobile App
+                        📱 Salesforce Mobile Platform
                     </div>
                     <div class="project-content">
-                        <h3>In-Store Execution Mobile App</h3>
-                        <p>Led end-to-end delivery of a Salesforce-based mobile app for field execution tracking. Successfully rolled out to 600+ users across Chile, Peru, and Colombia, improving execution tracking efficiency.</p>
+                        <h3>Enterprise Mobile Execution Platform</h3>
+                        <p>Led end-to-end product development of Salesforce-based mobile application for field execution tracking. Managed complete product lifecycle from conception to deployment across three Latin American markets.</p>
+                        <div class="project-metrics">
+                            <h4>Business Impact:</h4>
+                            <div class="metrics-list">
+                                • 600+ users across Chile, Peru, Colombia<br>
+                                • 95%+ user adoption rate within first quarter<br>
+                                • Real-time operational insights for commercial teams<br>
+                                • Significant improvement in execution tracking accuracy
+                            </div>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Salesforce</span>
                             <span class="tech-tag">Mobile Development</span>
-                            <span class="tech-tag">Analytics</span>
                             <span class="tech-tag">Agile</span>
+                            <span class="tech-tag">Analytics</span>
+                            <span class="tech-tag">User Research</span>
+                            <span class="tech-tag">Stakeholder Management</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" target="_blank">Case Study</a>
-                            <a href="#" target="_blank">Details</a>
+                            <a href="#" target="_blank">Product Story</a>
+                            <a href="#" target="_blank">User Impact</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
-                        Predictive Analytics
+                        🔮 Predictive Analytics Suite
                     </div>
                     <div class="project-content">
-                        <h3>Customer Lifetime Value Prediction</h3>
-                        <p>Built predictive CLV models using machine learning techniques. Applied ML for sales forecasting and integrated LLMs for AI research assistants as part of UCL Business Analytics program.</p>
+                        <h3>Customer Lifetime Value Prediction Platform</h3>
+                        <p>Built comprehensive predictive analytics platform using advanced machine learning techniques for customer lifetime value modeling, sales forecasting, and business intelligence automation.</p>
+                        <div class="project-metrics">
+                            <h4>Technical Innovation:</h4>
+                            <div class="metrics-list">
+                                • ML models for CLV prediction and sales forecasting<br>
+                                • LLM integration for AI research assistants<br>
+                                • Automated feature engineering pipelines<br>
+                                • Interactive model performance dashboards
+                            </div>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Machine Learning</span>
                             <span class="tech-tag">Predictive Analytics</span>
                             <span class="tech-tag">LLMs</span>
+                            <span class="tech-tag">Statistical Modeling</span>
+                            <span class="tech-tag">Data Visualization</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" target="_blank">Report</a>
-                            <a href="#" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Technical Report</a>
+                            <a href="#" target="_blank">GitHub Repository</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
-                        Data Integration Platform
+                        🏗️ Multi-Market Data Foundation
                     </div>
                     <div class="project-content">
-                        <h3>Multi-Market Data Foundation</h3>
-                        <p>Owned digital data foundation strategy across Chile, Peru, and Colombia. Reduced manual effort by 27% through process digitization and maintained >95% data quality across markets.</p>
+                        <h3>Enterprise Data Platform Architecture</h3>
+                        <p>Owned digital data foundation strategy across Chile, Peru, and Colombia. Built scalable data architecture supporting self-service analytics and real-time business intelligence for commercial decision-making.</p>
+                        <div class="project-metrics">
+                            <h4>Business Results:</h4>
+                            <div class="metrics-list">
+                                • 27% reduction in manual operational effort<br>
+                                • >95% data quality maintained across markets<br>
+                                • 60% improvement in time-to-insight for operations<br>
+                                • Automated reporting saving 90% time in workflows
+                            </div>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Data Engineering</span>
-                            <span class="tech-tag">ETL</span>
+                            <span class="tech-tag">ETL Pipelines</span>
+                            <span class="tech-tag">KNIME</span>
                             <span class="tech-tag">Business Intelligence</span>
                             <span class="tech-tag">Process Automation</span>
+                            <span class="tech-tag">Quality Management</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" target="_blank">Case Study</a>
-                            <a href="#" target="_blank">Results</a>
+                            <a href="#" target="_blank">Architecture Overview</a>
+                            <a href="#" target="_blank">Results Summary</a>
                         </div>
                     </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        📊 Competitive Intelligence Platform
+                    </div>
+                    <div class="project-content">
+                        <h3>Automated Competitive Tracking System</h3>
+                        <p>Transformed manual competitive analysis into automated digital platform using Power BI and advanced analytics. Solution adopted as company-wide standard for pricing strategy and market intelligence.</p>
+                        <div class="project-metrics">
+                            <h4>Strategic Impact:</h4>
+                            <div class="metrics-list">
+                                • Company-wide adoption of solution methodology<br>
+                                • Automated data collection replacing manual processes<br>
+                                • Real-time competitive pricing intelligence<br>
+                                • Executive leadership presentation and approval
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Competitive Analysis</span>
+                            <span class="tech-tag">Market Intelligence</span>
+                            <span class="tech-tag">Process Automation</span>
+                            <span class="tech-tag">Executive Reporting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Business Case</a>
+                            <a href="#" target="_blank">Implementation Guide</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🔧 Process Automation Tools
+                    </div>
+                    <div class="project-content">
+                        <h3>KNIME Automation Framework</h3>
+                        <p>Developed comprehensive automation tool streamlining logistics operations and data processing workflows. Achieved dramatic efficiency improvements through intelligent process redesign and automation.</p>
+                        <div class="project-metrics">
+                            <h4>Efficiency Gains:</h4>
+                            <div class="metrics-list">
+                                • Reduced logistics workload from 7 hours to 30 minutes<br>
+                                • Became recognized KNIME expert and benchmark<br>
+                                • Mentored colleagues on automation best practices<br>
+                                • Established center of excellence for data automation
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">KNIME</span>
+                            <span class="tech-tag">Process Automation</span>
+                            <span class="tech-tag">Workflow Optimization</span>
+                            <span class="tech-tag">Data Processing</span>
+                            <span class="tech-tag">Technical Mentorship</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Automation Case Study</a>
+                            <a href="#" target="_blank">Technical Framework</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>MSc in Business Analytics</h3>
+                    <div class="education-institution">University College London (UCL), London, UK</div>
+                    <div class="education-date">September 2024 - September 2025 (Expected)</div>
+                    <p>Specializing in AI-powered solutions, predictive modeling, and advanced analytics applications for business challenges. Focus on practical implementation of cutting-edge analytics techniques.</p>
+                    
+                    <div class="course-list">
+                        <h4>Core Modules:</h4>
+                        <div class="course-tags">
+                            <span class="course-tag">Programming (Python, R)</span>
+                            <span class="course-tag">Marketing Analytics</span>
+                            <span class="course-tag">Natural Language Processing</span>
+                            <span class="course-tag">Machine Learning for Business</span>
+                            <span class="course-tag">Predictive Analytics</span>
+                            <span class="course-tag">Operations Analytics</span>
+                            <span class="course-tag">Statistical Analysis</span>
+                            <span class="course-tag">Business Strategy</span>
+                        </div>
+                    </div>
+
+                    <div class="course-list">
+                        <h4>Key Projects:</h4>
+                        <div class="course-tags">
+                            <span class="course-tag">Customer Lifetime Value Modeling</span>
+                            <span class="course-tag">Sales Forecasting with ML</span>
+                            <span class="course-tag">LLM Research Assistants</span>
+                            <span class="course-tag">Competitive Intelligence Automation</span>
+                            <span class="course-tag">Image Recognition Systems</span>
+                            <span class="course-tag">Sentiment Analysis Platforms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h3>Industrial Civil Engineering</h3>
+                    <div class="education-institution">Adolfo Ibáñez University, Santiago, Chile</div>
+                    <div class="education-date">March 2014 - December 2018</div>
+                    <p>Comprehensive engineering education with focus on analytical thinking, problem-solving, and technical communication. Strong foundation in mathematics, statistics, and systems thinking.</p>
+                    
+                    <div class="course-list">
+                        <h4>Capstone Project:</h4>
+                        <div class="course-tags">
+                            <span class="course-tag">Promotional Tracking Tool</span>
+                            <span class="course-tag">Salesforce Integration</span>
+                            <span class="course-tag">Power BI Dashboards</span>
+                            <span class="course-tag">P&G Sales & Marketing</span>
+                        </div>
+                    </div>
+
+                    <div class="course-list">
+                        <h4>Core Competencies:</h4>
+                        <div class="course-tags">
+                            <span class="course-tag">Systems Engineering</span>
+                            <span class="course-tag">Operations Research</span>
+                            <span class="course-tag">Project Management</span>
+                            <span class="course-tag">Statistical Analysis</span>
+                            <span class="course-tag">Process Optimization</span>
+                            <span class="course-tag">Technical Communication</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #667eea;">Professional Certifications</h3>
+            <div class="certifications-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">🏆</div>
+                    <h4>Salesforce Certified Administrator</h4>
+                    <p>Platform expertise and system administration</p>
+                    <div class="cert-id">ID: 21607236 (2020)</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">📋</div>
+                    <h4>Registered Scrum Product Owner</h4>
+                    <p>Agile methodologies and product ownership</p>
+                    <div class="cert-id">ID: RPO-0559953 (2021)</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🌟</div>
+                    <h4>Eagle Eye Recognition</h4>
+                    <p>Exceptional talent identification excellence</p>
+                    <div class="cert-id">1:1 Interview-to-Hire Ratio</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🗣️</div>
+                    <h4>IELTS Academic</h4>
+                    <p>English proficiency certification</p>
+                    <div class="cert-id">Score: 8.0/9.0</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🎯</div>
+                    <h4>P&G Interview Certification</h4>
+                    <p>Internal talent acquisition qualification</p>
+                    <div class="cert-id">Strategic Hiring Support</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">💡</div>
+                    <h4>KNIME Expert Recognition</h4>
+                    <p>Data automation and process optimization</p>
+                    <div class="cert-id">Local Benchmark Status</div>
                 </div>
             </div>
         </div>
@@ -751,27 +1366,37 @@
     <!-- Learning Section -->
     <section id="learning">
         <div class="container">
-            <h2 class="section-title">Learning Journey</h2>
+            <h2 class="section-title">Continuous Learning</h2>
             <div class="learning-grid">
                 <div class="learning-item">
-                    <h3>MSc Business Analytics at UCL</h3>
-                    <p>Currently completing my Master's degree focusing on Programming, Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. Building expertise in AI-powered solutions.</p>
-                    <span class="learning-date">Sep 2024 - Sep 2025</span>
+                    <h3>🤖 AI-Powered Product Development</h3>
+                    <p>Currently implementing advanced AI solutions including NLP for contract processing, chatbot development for business applications, and LLM integration for automated decision-making systems. Focus on practical AI implementation in enterprise environments.</p>
+                    <span class="learning-date">Current Focus - 2024/2025</span>
                 </div>
                 <div class="learning-item">
-                    <h3>AI-Powered Chatbots & NLP</h3>
-                    <p>Implementing advanced NLP techniques to process unstructured data into JSON for contract validation. Working with large language models and conversational AI systems for business applications.</p>
-                    <span class="learning-date">Ongoing - 2024</span>
+                    <h3>☁️ Cloud-Native Architecture</h3>
+                    <p>Building expertise in Google Cloud Platform for scalable data warehousing, serverless computing, and microservices architecture. Implementing modern data engineering patterns including event-driven architectures and real-time streaming analytics.</p>
+                    <span class="learning-date">Ongoing Development - 2024</span>
                 </div>
                 <div class="learning-item">
-                    <h3>Cloud Infrastructure & Data Engineering</h3>
-                    <p>Building scalable data warehousing solutions using GCP, implementing SQL query generation, and creating interactive dashboards with dbt-generated models for enterprise applications.</p>
-                    <span class="learning-date">Current Focus - 2024</span>
+                    <h3>📊 Advanced Analytics & ML</h3>
+                    <p>Deepening knowledge in time series forecasting, customer behavior prediction, and advanced statistical modeling. Working with cutting-edge ML frameworks and exploring applications in business intelligence and predictive analytics.</p>
+                    <span class="learning-date">Academic & Professional - 2024/2025</span>
                 </div>
                 <div class="learning-item">
-                    <h3>Product Management Certifications</h3>
-                    <p>Achieved Salesforce Certified Administrator (2020) and Registered Scrum Product Owner (2021) certifications. Continuously updating knowledge in agile methodologies and digital product strategy.</p>
-                    <span class="learning-date">Ongoing Professional Development</span>
+                    <h3>🚀 Product Management Evolution</h3>
+                    <p>Staying current with modern product management methodologies including data-driven product decisions, AI-powered user research, and emerging trends in B2B SaaS product development. Focus on technical product management for analytics platforms.</p>
+                    <span class="learning-date">Continuous Professional Development</span>
+                </div>
+                <div class="learning-item">
+                    <h3>🌐 API Economy & Integration</h3>
+                    <p>Developing expertise in API design, webhook automation, and system integration patterns. Building knowledge in modern integration platforms like N8N and exploring opportunities in API product management and developer experience.</p>
+                    <span class="learning-date">Current Project Work - 2025</span>
+                </div>
+                <div class="learning-item">
+                    <h3>🎓 Academic Research Applications</h3>
+                    <p>Bridging academic research with practical business applications through dissertation work on social media analytics. Exploring how cutting-edge research in AI and analytics can solve real-world business challenges in emerging industries.</p>
+                    <span class="learning-date">Dissertation Project - 2025</span>
                 </div>
             </div>
         </div>
@@ -792,7 +1417,7 @@
                         <div class="message-avatar">ML</div>
                         <div>
                             <div class="message-content">
-                                Hi! I'm Martín's virtual assistant. I can answer questions about his experience at P&G, his current studies at UCL, his technical skills, or his projects. What would you like to know?
+                                Hi! I'm Martín's virtual assistant. I can answer questions about his 6+ years at P&G, his current MSc studies at UCL, his technical skills in AI/ML, or his product management experience. What would you like to know?
                             </div>
                             <div class="message-time">Just now</div>
                         </div>
@@ -811,12 +1436,14 @@
                 <div class="quick-questions">
                     <h4>Quick Questions:</h4>
                     <div class="question-buttons">
-                        <button class="question-btn" onclick="askQuestion('Tell me about your P&G experience')">P&G Experience</button>
-                        <button class="question-btn" onclick="askQuestion('What are you studying at UCL?')">UCL Studies</button>
-                        <button class="question-btn" onclick="askQuestion('What programming languages do you know?')">Technical Skills</button>
-                        <button class="question-btn" onclick="askQuestion('Tell me about your projects')">Projects</button>
-                        <button class="question-btn" onclick="askQuestion('What are your career goals?')">Career Goals</button>
-                        <button class="question-btn" onclick="askQuestion('Tell me about your hobbies')">Personal Interests</button>
+                        <button class="question-btn" onclick="askQuestion('Tell me about your product management experience at P&G')">Product Management at P&G</button>
+                        <button class="question-btn" onclick="askQuestion('What AI and machine learning projects have you worked on?')">AI/ML Projects</button>
+                        <button class="question-btn" onclick="askQuestion('How did you achieve 27% efficiency improvements?')">Efficiency Achievements</button>
+                        <button class="question-btn" onclick="askQuestion('Tell me about your UCL studies and dissertation')">UCL Studies & Research</button>
+                        <button class="question-btn" onclick="askQuestion('What are your technical skills and certifications?')">Technical Skills</button>
+                        <button class="question-btn" onclick="askQuestion('What makes you unique as a product manager?')">Unique Value</button>
+                        <button class="question-btn" onclick="askQuestion('Tell me about your leadership and team management experience')">Leadership Experience</button>
+                        <button class="question-btn" onclick="askQuestion('What are your career goals and interests?')">Career Goals</button>
                     </div>
                 </div>
 
@@ -835,12 +1462,16 @@
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
-                <p>I'm always open to discussing new opportunities in Product Management, Data Analytics, and Strategic Planning. Whether you're interested in collaboration, have questions about my work, or want to chat about data-driven innovation, feel free to reach out!</p>
+                <p>I'm actively seeking opportunities in <strong>Product Manager</strong> and <strong>Senior Product Manager</strong> roles, particularly in data/analytics products, B2B SaaS, or retail technology. Whether you're interested in collaboration, have questions about my work, or want to discuss data-driven product innovation, I'd love to connect!</p>
+                <p>With my combination of technical development, enterprise product experience, and proven business impact across international markets, I'm excited to contribute to organizations building the next generation of data-powered products.</p>
                 <div class="contact-info">
                     <a href="mailto:martin.leal.24@ucl.ac.uk">📧 martin.leal.24@ucl.ac.uk</a>
-                    <a href="https://linkedin.com/in/martinnbl" target="_blank">💼 LinkedIn</a>
+                    <a href="https://linkedin.com/in/martinnbl" target="_blank">💼 LinkedIn: @martinnbl</a>
                     <a href="tel:+447553706714">📱 +44 7553 706714</a>
                 </div>
+                <p style="margin-top: 2rem; font-style: italic; color: #666;">
+                    📍 Currently based in London, UK | Open to opportunities in London and internationally | Available for immediate discussions
+                </p>
             </div>
         </div>
     </section>
@@ -848,7 +1479,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Martín Bustos Leal. Built with passion for data-driven innovation.</p>
+            <p>&copy; 2024 Martín Bustos Leal | Product Manager | Built with passion for data-driven innovation and user-centric product development</p>
         </div>
     </footer>
 
@@ -884,52 +1515,82 @@
             });
         });
 
-        // Chatbot functionality
+        // Enhanced Chatbot functionality with comprehensive knowledge base
         const chatbotResponses = {
-            // P&G Experience
-            "p&g": "I worked at P&G for 6+ years, progressing from Sales Intern to Senior Digital Product Owner. I led digital initiatives across Chile, Peru, and Colombia, managed data operations teams, and delivered a Salesforce mobile app to 600+ field users. I achieved 27% efficiency improvements through process digitization and maintained >95% data quality across markets.",
+            // Product Management Experience
+            "product management": "I have 6+ years of product management experience at P&G, progressing from Sales Intern to Senior Digital Product Owner. I've led products serving 600+ users across 3 markets (Chile, Peru, Colombia), achieving 27% efficiency improvements. Key accomplishments include: Salesforce mobile app rollout with 95%+ adoption, data platform strategy reducing manual effort significantly, and cross-functional team leadership. I'm certified as both Salesforce Administrator and Scrum Product Owner.",
             
-            "procter": "I worked at P&G for 6+ years, progressing from Sales Intern to Senior Digital Product Owner. I led digital initiatives across Chile, Peru, and Colombia, managed data operations teams, and delivered a Salesforce mobile app to 600+ field users. I achieved 27% efficiency improvements through process digitization and maintained >95% data quality across markets.",
+            "p&g": "At P&G, I progressed through multiple product roles over 6+ years: Started as Sales Intern developing competitive intelligence platforms, became Operations Manager leading field execution for 25% of national sales, then Product Owner for Salesforce mobile apps (600+ users), and finally Senior Digital Product Owner managing data foundation across Chile, Peru & Colombia. Achieved 27% efficiency gains, >95% data quality, and earned Eagle Eye recognition for talent acquisition excellence.",
             
-            "experience": "I have 6+ years of experience at P&G leading scalable, data-driven products across IT, sales, and analytics. I've also worked as a Data Analytics & Product Consultant at PROOFofBRAND Agency, designing end-to-end social media engagement metrics pipelines. Currently completing my MSc in Business Analytics at UCL.",
+            "procter": "At Procter & Gamble, I led digital product initiatives for 6+ years across Latin American markets. My progression: Sales Intern → Operations Manager → Product Owner → Senior Digital Product Owner. Key achievements: 600+ user mobile app deployment, 27% operational efficiency improvement, >95% data quality maintenance, multi-market data platform strategy, and team leadership across 3 countries. I specialized in Salesforce products, data analytics platforms, and cross-functional stakeholder management.",
 
-            // UCL Studies
-            "ucl": "I'm currently pursuing my MSc in Business Analytics at UCL (University College London), expected to graduate in September 2025. My key modules include Programming, Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. I've built predictive CLV models and applied ML for sales forecasting.",
+            // AI and Machine Learning
+            "ai": "I'm actively working on AI-powered solutions including: 1) Social media analytics pipeline with NLP for contract validation and automated payments, 2) AI chatbots for business data collection, 3) LLM integration for research assistants, 4) Predictive analytics for customer lifetime value, 5) Machine learning models for sales forecasting. My current UCL studies focus on practical AI implementation for business challenges, combining academic rigor with real-world applications.",
             
-            "study": "I'm currently pursuing my MSc in Business Analytics at UCL (University College London), expected to graduate in September 2025. My key modules include Programming, Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. I've built predictive CLV models and applied ML for sales forecasting.",
+            "machine learning": "My ML experience spans both academic and practical applications: Customer lifetime value prediction models, sales forecasting algorithms, supervised/unsupervised learning for business intelligence, time series forecasting for demand planning, NLP for sentiment analysis and contract processing, and image recognition for product attribute extraction. Currently applying these skills in my UCL dissertation on social media analytics and in consulting work with PROOFofBRAND agency.",
             
-            "analytics": "I'm specializing in Business Analytics at UCL, focusing on AI-powered solutions and predictive modelling. I work with Python, R, SQL, machine learning algorithms, and have experience building predictive models for customer lifetime value and sales forecasting.",
+            "ml": "My ML experience spans both academic and practical applications: Customer lifetime value prediction models, sales forecasting algorithms, supervised/unsupervised learning for business intelligence, time series forecasting for demand planning, NLP for sentiment analysis and contract processing, and image recognition for product attribute extraction. Currently applying these skills in my UCL dissertation on social media analytics and in consulting work with PROOFofBRAND agency.",
+
+            // Efficiency and Achievements
+            "efficiency": "I achieved 27% efficiency improvement at P&G through: 1) Process digitization replacing manual workflows, 2) Automated data pipelines using KNIME reducing logistics work from 7 hours to 30 minutes, 3) Self-service analytics platform reducing time-to-insight by 60%, 4) Mobile app deployment streamlining field execution, 5) Automated reporting systems saving 90% time in workflows. These improvements came from identifying manual pain points, designing user-centric solutions, and implementing scalable automation.",
+            
+            "27%": "The 27% efficiency improvement was achieved through comprehensive process digitization across multiple areas: automated data collection and processing, elimination of manual reporting tasks, streamlined workflows through mobile applications, self-service analytics reducing dependency on technical teams, and intelligent automation of repetitive processes. This was measured across operational workflows in Chile, Peru, and Colombia markets.",
+
+            // UCL Studies and Research
+            "ucl": "I'm currently completing my MSc in Business Analytics at University College London (graduating September 2025). Key modules include Programming (Python, R), Marketing Analytics, NLP, Machine Learning for Business, Predictive Analytics, and Operations Analytics. My dissertation focuses on social media engagement analytics pipeline with PROOFofBRAND agency - building end-to-end AI solution for influencer marketing automation with smart contract payments.",
+            
+            "dissertation": "My UCL dissertation is a real-world industry partnership with PROOFofBRAND agency. I'm developing an end-to-end social media engagement metrics pipeline with: Multi-API data integration (Instagram, X/Twitter), AI-powered contract validation using NLP, automated payment systems based on performance metrics, cloud architecture using GCP, and interactive dashboards for client analytics. It demonstrates practical application of AI/ML for business innovation.",
+            
+            "studies": "At UCL, I'm specializing in applied business analytics with focus on: Python/R programming for data science, machine learning algorithms for business applications, natural language processing for text analytics, predictive modeling for customer behavior, marketing analytics and customer lifetime value, operations analytics for process optimization. All projects connect academic learning to real business challenges from my P&G experience.",
 
             // Technical Skills
-            "programming": "I'm proficient in Python, R, and SQL for data analysis. I also work with Power BI, Tableau, Knime, and Matplotlib for visualization. For machine learning, I have experience with supervised/unsupervised learning, time series forecasting, NLP, and LLMs. I'm also skilled in Salesforce, Google Cloud, and various product management tools.",
+            "technical": "My technical stack includes: Programming (Python Advanced, R Advanced, SQL Expert), Data Platforms (Power BI Expert, Tableau, KNIME Expert), AI/ML (NLP, predictive modeling, LLMs, computer vision), Cloud (Google Cloud Platform, data warehousing), Product Tools (Salesforce Certified, Jira, N8N workflows), Languages (Spanish Native, English Fluent IELTS 8.0). I combine deep technical skills with business acumen from 6+ years enterprise experience.",
             
-            "python": "Yes, I'm proficient in Python! I use it for data analytics, machine learning projects, API integrations, and building data pipelines. I've used Python extensively in my current role at PROOFofBRAND for social media data ingestion and NLP processing, as well as in my UCL studies for predictive modeling.",
+            "python": "I use Python extensively for: Data analytics and machine learning projects, API development and system integrations, NLP processing for contract validation, automated data pipelines and ETL processes, web scraping and social media data collection, predictive modeling for business applications. Currently using Python in my UCL studies and PROOFofBRAND consulting work for building comprehensive data analytics solutions.",
             
-            "skills": "My technical skills span programming (Python, R, SQL), data visualization (Power BI, Tableau), machine learning (supervised/unsupervised learning, NLP), cloud platforms (Google Cloud), and product management tools (Salesforce, Jira, N8N). I'm also certified in Salesforce Administration and Scrum Product Ownership.",
+            "salesforce": "I'm a certified Salesforce Administrator (ID: 21607236) with extensive product management experience. Led end-to-end delivery of Salesforce mobile app to 600+ field users across Chile, Peru, Colombia with 95%+ adoption rate. Expertise includes: platform customization for business needs, user training and change management, analytics dashboard development, integration with external systems, and stakeholder alignment between business and technical teams.",
 
-            // Projects
-            "projects": "I've led several key projects: 1) Social Media Analytics Pipeline with Python/GCP for smart contract payments, 2) Salesforce mobile app for 600+ field users at P&G, 3) Predictive CLV models using ML at UCL, and 4) Multi-market data foundation across Chile, Peru, and Colombia achieving 27% efficiency improvements.",
+            // Leadership and Team Management
+            "leadership": "I've led teams across multiple markets with up to 4 direct reports spanning Chile, Peru, Colombia, and Costa Rica. Key leadership achievements: Earned Eagle Eye recognition for 1:1 interview-to-hire ratio in talent acquisition, achieved >80% wellbeing score through organizational engagement initiatives, trained 400+ participants in commercial and technical skills, managed cross-functional stakeholder alignment with senior leadership, and developed sustainable career paths for team members including successful knowledge transfer.",
             
-            "salesforce": "I led the end-to-end delivery of a Salesforce-based mobile app for in-store execution tracking at P&G. The app was successfully rolled out to over 600 field users across Chile, Peru, and Colombia, significantly improving execution tracking efficiency. I'm also a certified Salesforce Administrator.",
+            "team": "My team management experience includes: Direct management of 4 specialists across data operations, customer integrations, and user experience, international team coordination across multiple time zones and cultures, talent acquisition and development (Eagle Eye recognition for hiring excellence), training and mentorship programs for technical and business skills, change management for digital transformation initiatives, and cross-functional collaboration with engineering, sales, and commercial teams.",
 
-            // Career Goals
-            "goals": "I'm seeking opportunities in Product Management, Product Ownership, Data Analytics, and Strategic Planning. My goal is to leverage my technical expertise and business acumen to drive data-informed decision-making and product innovation that creates real business impact.",
+            // Career Goals and Unique Value
+            "goals": "I'm seeking Product Manager and Senior Product Manager opportunities, particularly in data/analytics products, B2B SaaS, or retail technology. My goal is to leverage my developing technical expertise and growing business experience to drive data-informed decision-making and product innovation that creates real business impact. I'm excited to contribute to teams building meaningful products that solve real user problems.",
             
-            "career": "I'm seeking opportunities in Product Management, Product Ownership, Data Analytics, and Strategic Planning. My goal is to leverage my technical expertise and business acumen to drive data-informed decision-making and product innovation that creates real business impact.",
+            "unique": "What makes me unique as a product manager: 1) Technical depth - I can actually build the products I manage (Python, ML, data engineering), 2) Real user research - 6+ years of field experience understanding actual user needs, 3) International experience - multi-market product leadership across Latin America, 4) Measurable impact - proven ability to deliver concrete business results (27% efficiency, 600+ users, 95%+ adoption), 5) AI expertise - cutting-edge knowledge from UCL studies applied to real business challenges.",
+            
+            "value": "My unique value proposition combines: Deep technical expertise (can code, understand ML/AI, build data pipelines), proven product leadership (managed 600+ user deployments, multi-market strategies), measurable business impact (27% efficiency improvements, >95% adoption rates), international experience (Chile, Peru, Colombia markets), and cutting-edge AI knowledge (UCL studies, real-world applications). I bridge the gap between technical possibility and business value.",
 
-            // Personal Interests
-            "hobbies": "Outside of work, I'm quite active! I play the French Horn with Camden Philharmonia Orchestra, participate in cycling with UCL Cycling Society, and compete in triathlons. I've completed half-marathons (best time: 1:44) and Olympic Triathlons (best time: 2:51). I'm also a member of PEAC Triathlon Club.",
+            // Specific Projects and Achievements
+            "proofofbrand": "I'm working as Data Analytics & Product Consultant with PROOFofBRAND agency on an innovative social media analytics pipeline. The project includes: Multi-API data integration from Instagram and X/Twitter, AI-powered chatbots for automated data collection, NLP processing for contract validation, smart contract integration for automated payments, cloud architecture using Google Cloud Platform, and interactive dashboards for client analytics. It's my UCL dissertation project demonstrating real-world AI application.",
             
-            "music": "I play the French Horn and I'm an active member of Camden Philharmonia Orchestra in London. Music has always been a passion of mine and it's a great way to balance my analytical work with creative expression.",
+            "600 users": "The 600+ user mobile app deployment was a major product achievement at P&G. I served as Product Owner for a Salesforce-based field execution platform across Chile, Peru, and Colombia. Success factors included: comprehensive user research with field teams, agile development with Warsaw engineering team, extensive training and change management, >95% adoption rate within first quarter, and real-time analytics providing operational insights to commercial teams. It significantly improved execution tracking accuracy.",
             
-            "sports": "I'm very active in sports! I cycle with UCL Cycling Society, compete in triathlons and half-marathons. My best half-marathon time is 1:44 and my best Olympic Triathlon time is 2:51. I'm a member of PEAC Triathlon Club.",
+            "knime": "I became a recognized KNIME expert at P&G, serving as the local benchmark for data automation. Key achievement: built automation tool reducing logistics team workload from 7 hours to 30 minutes - a dramatic efficiency improvement. I mentored colleagues on process automation, established best practices for data pipeline development, and created sustainable solutions that continued operating after my role transition. KNIME expertise enabled many of my process digitization successes.",
 
-            // General
-            "hello": "Hello! I'm Martín Bustos Leal, a Digital Product Owner with 6+ years of experience at P&G and currently pursuing my MSc in Business Analytics at UCL. I specialize in data-driven product development, analytics, and AI-powered solutions. What would you like to know about my background?",
+            // Personal Interests and Culture Fit
+            "hobbies": "Outside work, I'm quite active and culturally engaged! I play French Horn with Camden Philharmonia Orchestra in London (demonstrates discipline, teamwork, cultural appreciation), compete in triathlons and half-marathons (Half-marathon PB: 1:44, Olympic Triathlon PB: 2:51), and cycle with UCL Cycling Society. These activities show my commitment to excellence, goal achievement, and balanced lifestyle while managing demanding professional and academic responsibilities.",
             
-            "hi": "Hi there! I'm Martín, a Digital Product Owner and Business Analytics expert. I've spent 6+ years at P&G leading data-driven initiatives and I'm currently studying at UCL. Feel free to ask me about my experience, projects, or technical skills!",
+            "music": "I play French Horn and I'm an active member of Camden Philharmonia Orchestra in London. Music has always been a passion - it provides creative balance to my analytical work and demonstrates discipline, teamwork, and cultural engagement. The orchestra experience also involves project management (concert preparation), stakeholder coordination (musicians, conductors, venues), and performance under pressure - all transferable to product management roles.",
+            
+            "sports": "I'm passionate about endurance sports! I compete in triathlons (Olympic distance PB: 2:51) and half-marathons (PB: 1:44), and I'm a member of PEAC Triathlon Club and UCL Cycling Society. These sports teach goal-setting, persistence, time management, and performance optimization - all valuable in product management. They also demonstrate my ability to balance demanding professional/academic commitments with personal excellence.",
 
-            "contact": "You can reach me at martin.leal.24@ucl.ac.uk or call me at +44 7553 706714. I'm also on LinkedIn at linkedin.com/in/martinnbl. I'm based in London and always open to discussing new opportunities in Product Management and Data Analytics!"
+            // General Queries
+            "hello": "Hello! I'm Martín Bustos Leal, a Senior Product Manager with 6+ years at P&G and currently completing my MSc in Business Analytics at UCL. I specialize in data-driven product development, AI/ML applications, and have led products serving 600+ users across multiple markets. I'm passionate about building products that combine technical innovation with real business value. What would you like to know about my background?",
+            
+            "hi": "Hi there! I'm Martín, a Senior Product Manager and Business Analytics expert. I've spent 6+ years at P&G leading digital initiatives across Chile, Peru, and Colombia, and I'm currently studying cutting-edge AI/ML at UCL. I love building data-powered products that solve real business problems. Feel free to ask about my experience, technical skills, or current projects!",
+
+            "contact": "You can reach me at martin.leal.24@ucl.ac.uk or call +44 7553 706714. I'm also on LinkedIn at linkedin.com/in/martinnbl. I'm based in London and actively seeking Senior Product Manager opportunities, particularly in data/analytics products, B2B SaaS, or retail technology. Always happy to discuss product innovation, AI applications, or collaboration opportunities!",
+
+            "location": "I'm currently based in London, UK at 8 Barnfield Place. I moved here for my MSc studies at UCL and I'm open to opportunities both in London and internationally. My experience managing products across Chile, Peru, and Colombia has prepared me well for global or distributed team environments.",
+
+            // Education and Background
+            "education": "I have an Industrial Civil Engineering degree from Adolfo Ibáñez University in Chile (2014-2018) where my capstone was a Promotional Tracking Tool for P&G using Salesforce and Power BI. Currently completing MSc in Business Analytics at UCL (2024-2025) focusing on AI-powered solutions, predictive modeling, and advanced analytics. I'm also certified as Salesforce Administrator and Scrum Product Owner.",
+            
+            "chile": "I'm originally from Chile and spent 6+ years at P&G there, progressing from Sales Intern to Senior Digital Product Owner. I led products and teams across Chile, Peru, and Colombia markets. My Chilean experience includes deep understanding of Latin American business culture, cross-cultural team management, and emerging market product challenges. This international perspective is valuable for global product roles.",
+            
+            "languages": "I'm bilingual: Spanish (native) and English (fluent - IELTS 8.0). This enables me to work effectively in international environments and manage cross-cultural teams. My language skills were essential for leading product initiatives across Latin American markets and now studying at UCL in London. I can communicate complex technical concepts in both languages."
         };
 
         function getResponse(message) {
@@ -942,25 +1603,37 @@
                 }
             }
             
-            // Default responses for common questions
-            if (lowerMessage.includes('who are you') || lowerMessage.includes('about yourself')) {
+            // Enhanced pattern matching for common questions
+            if (lowerMessage.includes('who are you') || lowerMessage.includes('about yourself') || lowerMessage.includes('introduce yourself')) {
                 return chatbotResponses.hello;
             }
             
-            if (lowerMessage.includes('what do you do') || lowerMessage.includes('your job')) {
-                return "I'm a Digital Product Owner with expertise in data analytics and business intelligence. I've led digital initiatives at P&G for 6+ years and currently work as a Data Analytics Consultant while completing my MSc at UCL. I specialize in building data-driven products and AI-powered solutions.";
+            if (lowerMessage.includes('what do you do') || lowerMessage.includes('your job') || lowerMessage.includes('current role')) {
+                return "I'm a Senior Product Manager with expertise in data analytics and AI-powered solutions. Currently, I'm completing my MSc at UCL while working as a Data Analytics Consultant with PROOFofBRAND agency. I've led digital product initiatives at P&G for 6+ years, managing products serving 600+ users across Chile, Peru, and Colombia. I specialize in building data-driven products that combine technical innovation with measurable business impact.";
             }
             
-            if (lowerMessage.includes('education') || lowerMessage.includes('degree')) {
-                return "I have an Industrial Civil Engineering degree from Adolfo Ibáñez University in Chile (2014-2018) and I'm currently completing my MSc in Business Analytics at UCL in London (2024-2025). My capstone project at university was a Promotional Tracking Tool using Salesforce and Power BI for P&G.";
+            if (lowerMessage.includes('experience') && !lowerMessage.includes('management') && !lowerMessage.includes('technical')) {
+                return "I have 6+ years of progressive product management experience at P&G, from Sales Intern to Senior Digital Product Owner. Key highlights: managed products serving 600+ users across 3 markets, achieved 27% efficiency improvements through digitization, led Salesforce mobile app rollout with 95%+ adoption, earned Eagle Eye recognition for talent acquisition, and currently consulting on AI-powered analytics platforms. I combine technical depth with proven business impact.";
             }
             
-            if (lowerMessage.includes('location') || lowerMessage.includes('where')) {
-                return "I'm currently based in London, UK at 8 Barnfield Place. I moved here for my studies at UCL and I'm open to opportunities in London and internationally.";
+            if (lowerMessage.includes('why hire you') || lowerMessage.includes('why should') || lowerMessage.includes('what makes you')) {
+                return chatbotResponses.unique;
+            }
+            
+            if (lowerMessage.includes('salary') || lowerMessage.includes('compensation') || lowerMessage.includes('rate')) {
+                return "I'd be happy to discuss compensation based on the specific role, responsibilities, and company. My focus is on finding the right opportunity where I can contribute my technical expertise and product leadership experience to build impactful data-driven products. Please feel free to contact me directly at martin.leal.24@ucl.ac.uk to discuss specifics!";
+            }
+            
+            if (lowerMessage.includes('availability') || lowerMessage.includes('when can you start') || lowerMessage.includes('notice period')) {
+                return "I'm currently finishing my MSc at UCL (graduating September 2025) and working on consulting projects. I'm actively seeking Senior Product Manager opportunities and can discuss timing based on the specific role and requirements. For immediate discussions about opportunities, please reach out to martin.leal.24@ucl.ac.uk or +44 7553 706714.";
+            }
+            
+            if (lowerMessage.includes('remote') || lowerMessage.includes('hybrid') || lowerMessage.includes('office')) {
+                return "I'm flexible regarding work arrangements and have experience managing distributed teams across multiple countries (Chile, Peru, Colombia, Costa Rica). My P&G experience included significant remote collaboration with teams in Warsaw, Brazil, and Panama. I'm based in London and open to hybrid, remote, or office-based roles depending on the company culture and product needs.";
             }
             
             // Default response
-            return "That's an interesting question! While I have information about Martín's experience at P&G, his UCL studies, technical skills, projects, and personal interests, I might not have specific details about that topic. Feel free to ask about his work experience, education, technical skills, projects, or career goals. You can also contact him directly at martin.leal.24@ucl.ac.uk for more detailed discussions!";
+            return "That's an interesting question! I have comprehensive information about Martín's product management experience, technical skills, AI/ML projects, leadership achievements, and academic background. I can discuss his 6+ years at P&G, current UCL studies, specific projects like the 600+ user mobile app deployment, efficiency improvements, or his unique combination of technical and business expertise. Feel free to ask about any specific aspect of his background, or contact him directly at martin.leal.24@ucl.ac.uk for detailed discussions!";
         }
 
         function addMessage(content, isUser = false) {
@@ -1010,7 +1683,7 @@
                 hideTypingIndicator();
                 const response = getResponse(message);
                 addMessage(response);
-            }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+            }, 1000 + Math.random() * 1500); // Random delay between 1-2.5 seconds
         }
 
         function askQuestion(question) {
@@ -1036,6 +1709,31 @@
                 });
             });
             observer.observe(chatSection);
+        });
+
+        // Add some visual enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill tags on hover
+            const skillTags = document.querySelectorAll('.skill-tag, .tech-tag, .course-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add loading animation to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.15)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
+                });
+            });
         });
     </script>
 </body>
