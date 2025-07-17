@@ -64,30 +64,17 @@
             background: rgba(255,255,255,0.2);
         }
 
-
-
-        /* Dashboard grid */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .dashboard-card {
+        /* Dashboard sections */
+        .dashboard-section {
             background: white;
             border-radius: 15px;
             padding: 2rem;
             box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
         }
 
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-title {
-            font-size: 1.3rem;
+        .section-title {
+            font-size: 1.5rem;
             color: #002147;
             margin-bottom: 1.5rem;
             font-weight: 600;
@@ -95,65 +82,95 @@
             padding-bottom: 0.5rem;
         }
 
-        .chart-container {
-            min-height: 300px;
-            margin: 1rem 0;
+        /* Looker Studio Embed */
+        .looker-embed {
+            width: 100%;
+            height: 2125px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #002147;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Metrics summary */
-        .metrics-summary {
-            background: white;
+        /* Instructions for setup */
+        .setup-instructions {
+            background: linear-gradient(135deg, #e8f6f3, #d4edda);
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
+            border-left: 4px solid #28a745;
         }
 
-        .metrics-grid {
+        .setup-title {
+            color: #155724;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .setup-steps {
+            color: #155724;
+            line-height: 1.8;
+        }
+
+        .setup-steps ol {
+            margin-left: 1.5rem;
+        }
+
+        .setup-steps li {
+            margin: 0.5rem 0;
+        }
+
+        .setup-steps code {
+            background: rgba(255,255,255,0.8);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .placeholder-dashboard {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border: 2px dashed #002147;
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            color: #002147;
+        }
+
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .placeholder-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .placeholder-subtext {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Quick stats preview */
+        .quick-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .metric-box {
-            background: #f8f9fa;
+        .stat-box {
+            background: white;
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
             border-left: 4px solid #002147;
-            transition: all 0.3s ease;
         }
 
-        .metric-box:hover {
-            background: #e9ecef;
-        }
-
-        .metric-value {
+        .stat-value {
             font-size: 2rem;
             font-weight: bold;
             color: #002147;
@@ -161,21 +178,40 @@
             margin-bottom: 0.5rem;
         }
 
-        .metric-label {
+        .stat-label {
             color: #666;
             font-size: 0.9rem;
         }
 
+        /* Benefits section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-
-        /* Error states */
-        .error-message {
-            text-align: center;
-            padding: 2rem;
-            color: #721c24;
-            background: #f8d7da;
+        .benefit-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
             border-radius: 10px;
-            margin: 1rem;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-title {
+            color: #002147;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* Responsive design */
@@ -188,11 +224,7 @@
                 font-size: 2rem;
             }
             
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .metrics-grid {
+            .quick-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -201,351 +233,95 @@
                 display: inline-block;
                 margin-bottom: 1rem;
             }
+
+            .looker-embed {
+                height: 1800px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <a href="../index.html" class="back-link">← Back to Portfolio</a>
-            <h1>📊 Analytics Dashboard</h1>
-            <p>Portfolio website insights and performance metrics</p>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            <h1>📊 Live Analytics Dashboard</h1>
+            <p>Real-time insights powered by Google Analytics & Looker Studio</p>
         </div>
 
-
-
-
-
-        <div class="metrics-summary">
-            <h2 class="card-title">📈 Key Metrics (Last 30 Days)</h2>
-            <div class="metrics-grid">
-                <div class="metric-box">
-                    <span class="metric-value" id="total-sessions">-</span>
-                    <div class="metric-label">Total Sessions</div>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-value" id="total-users">-</span>
-                    <div class="metric-label">Total Users</div>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-value" id="total-pageviews">-</span>
-                    <div class="metric-label">Page Views</div>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-value" id="bounce-rate">-</span>
-                    <div class="metric-label">Bounce Rate</div>
-                </div>
+        <div class="setup-instructions">
+            <div class="setup-title">✅ Live Analytics Dashboard Connected!</div>
+            <div class="setup-steps">
+                <p><strong>Your Looker Studio dashboard is now live and displaying real Google Analytics data:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>📊 <strong>Real-time data</strong> from Google Analytics property 496863775</li>
+                    <li>🔄 <strong>Automatic updates</strong> - no manual maintenance required</li>
+                    <li>🌍 <strong>Public access</strong> - anyone can view without authentication</li>
+                    <li>📱 <strong>Mobile responsive</strong> - optimized for all devices</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>This demonstrates:</strong> Data visualization skills, Google Analytics expertise, and commitment to transparency in performance tracking.</p>
             </div>
         </div>
 
-        <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <h3 class="card-title">📊 Sessions Timeline</h3>
-                <div id="sessions-timeline" class="chart-container"></div>
+        <div class="quick-stats">
+            <div class="stat-box">
+                <span class="stat-value">🔴</span>
+                <div class="stat-label">Live Data</div>
             </div>
-
-            <div class="dashboard-card">
-                <h3 class="card-title">🌍 Top Countries</h3>
-                <div id="countries-chart" class="chart-container"></div>
+            <div class="stat-box">
+                <span class="stat-value">🌍</span>
+                <div class="stat-label">Global Reach</div>
             </div>
-
-            <div class="dashboard-card">
-                <h3 class="card-title">📱 Device Categories</h3>
-                <div id="devices-chart" class="chart-container"></div>
+            <div class="stat-box">
+                <span class="stat-value">📊</span>
+                <div class="stat-label">Real-time Updates</div>
             </div>
+            <div class="stat-box">
+                <span class="stat-value">🔒</span>
+                <div class="stat-label">Public Access</div>
+            </div>
+        </div>
 
-            <div class="dashboard-card">
-                <h3 class="card-title">🔍 Top Pages</h3>
-                <div id="pages-chart" class="chart-container"></div>
+        <div class="dashboard-section">
+            <h2 class="section-title">📈 Live Portfolio Analytics</h2>
+            
+            <!-- YOUR LIVE LOOKER STUDIO DASHBOARD -->
+            <iframe 
+                class="looker-embed"
+                src="https://lookerstudio.google.com/embed/reporting/bfbc2312-96cf-4d79-a938-8f359e2be348/page/kIV1C" 
+                allowfullscreen 
+                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+            </iframe>
+        </div>
+
+        <div class="dashboard-section">
+            <h2 class="section-title">💡 Why Live Analytics Matter</h2>
+            <p style="margin-bottom: 2rem; color: #666; line-height: 1.8;">
+                As a Digital Product Manager, I believe in data-driven decision making. This live analytics dashboard demonstrates my commitment to transparency, continuous improvement, and using real metrics to showcase performance and impact.
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-title">Real-time Data</div>
+                    <div class="benefit-text">Live connection to Google Analytics with automatic updates</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌍</div>
+                    <div class="benefit-title">Global Insights</div>
+                    <div class="benefit-text">Track visitor behavior and geographic distribution</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-title">Performance Tracking</div>
+                    <div class="benefit-text">Monitor engagement, bounce rates, and user journey</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-title">Data-Driven Approach</div>
+                    <div class="benefit-text">Demonstrates analytical thinking and measurement focus</div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Google API Client Library -->
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-
-    <script>
-        // ⚠️ REPLACE THESE VALUES WITH YOUR ACTUAL CREDENTIALS
-        const CLIENT_ID = '417128063954-7ks7jnkau3uacdvanlkfahlljq524emg.apps.googleusercontent.com';
-        const PROPERTY_ID = 'properties/496863775'; // Format: properties/123456789
-
-        // Discovery docs and scopes
-        const DISCOVERY_DOCS = ['https://analyticsdata.googleapis.com/$discovery/rest?version=v1beta'];
-        const SCOPES = 'https://www.googleapis.com/auth/analytics.readonly';
-
-        let isAuthorized = false;
-        let currentPropertyId = PROPERTY_ID;
-
-        // Initialize the API client
-        function initializeGapi() {
-            gapi.load('client:auth2', initClient);
-        }
-
-        function initClient() {
-            gapi.client.init({
-                clientId: CLIENT_ID,
-                discoveryDocs: DISCOVERY_DOCS,
-                scope: SCOPES
-            }).then(() => {
-                const authInstance = gapi.auth2.getAuthInstance();
-                
-                // Auto sign-in if not already signed in
-                if (!authInstance.isSignedIn.get()) {
-                    authInstance.signIn().then(() => {
-                        if (currentPropertyId && currentPropertyId !== 'properties/YOUR_PROPERTY_ID') {
-                            loadAllData();
-                        }
-                    });
-                } else {
-                    if (currentPropertyId && currentPropertyId !== 'properties/YOUR_PROPERTY_ID') {
-                        loadAllData();
-                    }
-                }
-            }).catch(error => {
-                // Silently handle initialization errors
-            });
-        }
-
-
-
-        function showLoading(elementId) {
-            document.getElementById(elementId).innerHTML = '<div class="loading">Loading data...</div>';
-        }
-
-        function clearAllData() {
-            ['total-sessions', 'total-users', 'total-pageviews', 'bounce-rate'].forEach(id => {
-                document.getElementById(id).textContent = '-';
-            });
-            
-            ['sessions-timeline', 'countries-chart', 'devices-chart', 'pages-chart'].forEach(id => {
-                document.getElementById(id).innerHTML = '';
-            });
-        }
-
-        async function loadProperties() {
-            if (currentPropertyId && currentPropertyId !== 'properties/YOUR_PROPERTY_ID') {
-                document.getElementById('property-selector').style.display = 'block';
-                const propertySelect = document.getElementById('property-select');
-                propertySelect.innerHTML = `<option value="${currentPropertyId}">Your Portfolio Analytics</option>`;
-                propertySelect.value = currentPropertyId;
-            }
-        }
-
-        async function loadAllData() {
-            if (!isAuthorized || !currentPropertyId) return;
-
-            showLoading('sessions-timeline');
-            showLoading('countries-chart');
-            showLoading('devices-chart');
-            showLoading('pages-chart');
-
-            try {
-                await Promise.all([
-                    loadSessionsTimeline(),
-                    loadCountriesData(),
-                    loadDevicesData(),
-                    loadPagesData(),
-                    loadSummaryMetrics()
-                ]);
-            } catch (error) {
-                // Silently handle data loading errors
-            }
-        }
-
-        async function makeAnalyticsRequest(metrics, dimensions = [], orderBys = []) {
-            const request = {
-                property: currentPropertyId,
-                dateRanges: [{ startDate: '30daysAgo', endDate: 'today' }],
-                metrics: metrics.map(m => ({ name: m })),
-                dimensions: dimensions.map(d => ({ name: d })),
-                orderBys: orderBys
-            };
-
-            return await gapi.client.analyticsdata.properties.runReport(request);
-        }
-
-        async function loadSessionsTimeline() {
-            try {
-                const response = await makeAnalyticsRequest(
-                    ['sessions'],
-                    ['date'],
-                    [{ dimension: { dimensionName: 'date' } }]
-                );
-
-                const data = response.result.rows || [];
-                createLineChart('sessions-timeline', data, 'Daily Sessions');
-            } catch (error) {
-                document.getElementById('sessions-timeline').innerHTML = '<div class="error-message">Unable to load sessions data</div>';
-            }
-        }
-
-        async function loadCountriesData() {
-            try {
-                const response = await makeAnalyticsRequest(
-                    ['sessions'],
-                    ['country'],
-                    [{ metric: { metricName: 'sessions' }, desc: true }]
-                );
-
-                const data = response.result.rows?.slice(0, 10) || [];
-                createBarChart('countries-chart', data, 'Top Countries by Sessions');
-            } catch (error) {
-                document.getElementById('countries-chart').innerHTML = '<div class="error-message">Unable to load countries data</div>';
-            }
-        }
-
-        async function loadDevicesData() {
-            try {
-                const response = await makeAnalyticsRequest(
-                    ['sessions'],
-                    ['deviceCategory']
-                );
-
-                const data = response.result.rows || [];
-                createPieChart('devices-chart', data, 'Sessions by Device Type');
-            } catch (error) {
-                document.getElementById('devices-chart').innerHTML = '<div class="error-message">Unable to load device data</div>';
-            }
-        }
-
-        async function loadPagesData() {
-            try {
-                const response = await makeAnalyticsRequest(
-                    ['screenPageViews'],
-                    ['pagePath'],
-                    [{ metric: { metricName: 'screenPageViews' }, desc: true }]
-                );
-
-                const data = response.result.rows?.slice(0, 8) || [];
-                createBarChart('pages-chart', data, 'Most Viewed Pages');
-            } catch (error) {
-                document.getElementById('pages-chart').innerHTML = '<div class="error-message">Unable to load pages data</div>';
-            }
-        }
-
-        async function loadSummaryMetrics() {
-            try {
-                const response = await makeAnalyticsRequest([
-                    'sessions',
-                    'activeUsers',
-                    'screenPageViews',
-                    'bounceRate'
-                ]);
-
-                const data = response.result.rows?.[0] || {};
-                const metrics = data.metricValues || [];
-
-                document.getElementById('total-sessions').textContent = 
-                    parseInt(metrics[0]?.value || 0).toLocaleString();
-                document.getElementById('total-users').textContent = 
-                    parseInt(metrics[1]?.value || 0).toLocaleString();
-                document.getElementById('total-pageviews').textContent = 
-                    parseInt(metrics[2]?.value || 0).toLocaleString();
-                document.getElementById('bounce-rate').textContent = 
-                    (parseFloat(metrics[3]?.value || 0) * 100).toFixed(1) + '%';
-
-            } catch (error) {
-                // Silently handle metrics errors
-            }
-        }
-
-        // Chart creation functions
-        function createLineChart(elementId, data, title) {
-            google.charts.load('current', { packages: ['line'] });
-            google.charts.setOnLoadCallback(() => {
-                const chartData = new google.visualization.DataTable();
-                chartData.addColumn('date', 'Date');
-                chartData.addColumn('number', 'Sessions');
-
-                data.forEach(row => {
-                    const date = new Date(row.dimensionValues[0].value);
-                    const sessions = parseInt(row.metricValues[0].value);
-                    chartData.addRow([date, sessions]);
-                });
-
-                const options = {
-                    title: title,
-                    width: '100%',
-                    height: 300,
-                    backgroundColor: 'transparent',
-                    colors: ['#002147'],
-                    titleTextStyle: { color: '#002147', fontSize: 14 },
-                    legend: { position: 'none' }
-                };
-
-                const chart = new google.charts.Line(document.getElementById(elementId));
-                chart.draw(chartData, google.charts.Line.convertOptions(options));
-            });
-        }
-
-        function createBarChart(elementId, data, title) {
-            google.charts.load('current', { packages: ['bar'] });
-            google.charts.setOnLoadCallback(() => {
-                const chartData = new google.visualization.DataTable();
-                chartData.addColumn('string', 'Category');
-                chartData.addColumn('number', 'Sessions');
-
-                data.forEach(row => {
-                    chartData.addRow([
-                        row.dimensionValues[0].value,
-                        parseInt(row.metricValues[0].value)
-                    ]);
-                });
-
-                const options = {
-                    title: title,
-                    width: '100%',
-                    height: 300,
-                    backgroundColor: 'transparent',
-                    colors: ['#0f4c75'],
-                    titleTextStyle: { color: '#002147', fontSize: 14 },
-                    legend: { position: 'none' }
-                };
-
-                const chart = new google.charts.Bar(document.getElementById(elementId));
-                chart.draw(chartData, google.charts.Bar.convertOptions(options));
-            });
-        }
-
-        function createPieChart(elementId, data, title) {
-            google.charts.load('current', { packages: ['corechart'] });
-            google.charts.setOnLoadCallback(() => {
-                const chartData = new google.visualization.DataTable();
-                chartData.addColumn('string', 'Category');
-                chartData.addColumn('number', 'Sessions');
-
-                data.forEach(row => {
-                    chartData.addRow([
-                        row.dimensionValues[0].value,
-                        parseInt(row.metricValues[0].value)
-                    ]);
-                });
-
-                const options = {
-                    title: title,
-                    width: '100%',
-                    height: 300,
-                    backgroundColor: 'transparent',
-                    colors: ['#002147', '#0f4c75', '#3498db', '#2ecc71', '#f39c12', '#e74c3c'],
-                    titleTextStyle: { color: '#002147', fontSize: 14 },
-                    legend: { position: 'bottom', textStyle: { fontSize: 12 } }
-                };
-
-                const chart = new google.visualization.PieChart(document.getElementById(elementId));
-                chart.draw(chartData, options);
-            });
-        }
-
-        // Override console methods to hide all console output
-        console.log = function() {};
-        console.error = function() {};
-        console.warn = function() {};
-        console.info = function() {};
-        console.debug = function() {};
-
-        // Initialize when page loads
-        window.onload = initializeGapi;
-    </script>
 </body>
 </html>
