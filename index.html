@@ -770,51 +770,128 @@
             gap: 0.5rem;
         }
 
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
+        /* Enhanced Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 2rem 0 1rem 0;
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
-            .header-text h1 {
-                font-size: 2rem;
-            }
+.tools-section {
+    text-align: center;
+}
 
-            .nav-container {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
+.tools-title {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
 
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
+.tools-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
 
-            .projects-grid, .education-grid {
-                grid-template-columns: 1fr;
-            }
+.tool-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
 
-            .highlight-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.tool-item:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
-            .experience-timeline {
-                padding-left: 1rem;
-            }
+.tool-icon {
+    font-size: 1rem;
+}
 
-            .timeline-item {
-                margin-left: 1rem;
-            }
-        }
+.tool-name {
+    font-weight: 500;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Footer responsive design */
+@media (max-width: 768px) {
+    .tools-grid {
+        gap: 0.5rem;
+    }
+    
+    .tool-item {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .tool-icon {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        justify-content: center;
+        max-width: 300px;
+        margin: 0 auto 1rem auto;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-text h1 {
+        font-size: 2rem;
+    }
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .projects-grid, .education-grid {
+        grid-template-columns: 1fr;
+    }
+    .highlight-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .experience-timeline {
+        padding-left: 1rem;
+    }
+    .timeline-item {
+        margin-left: 1rem;
+    }
+}
         /* Project Management Button */
         .pm-button {
             display: inline-flex;
