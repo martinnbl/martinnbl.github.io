@@ -992,9 +992,9 @@ footer {
                     <p style="margin-top: 2rem; font-style: italic; color: #666; text-align: center;">
         📍 Originally from Chile, currently living in London, UK
         </p>
-                    <p>Hello! I’m a curious and driven <strong>Digital Product Manager</strong> with 6+ years of experience turning complex challenges into meaningful, data-driven solutions. I’ve had the opportunity to lead the development of mobile apps used by 600+ users across Latin America, helping teams work more efficiently and make better decisions.</p>
+                    <p>Hello! I'm a curious and driven <strong>Digital Product Manager</strong> with 6+ years of experience turning complex challenges into meaningful, data-driven solutions. I've had the opportunity to lead the development of mobile apps used by 600+ users across Latin America, helping teams work more efficiently and make better decisions.</p>
         
-                    <p>With a background that blends business, tech, and a growing passion for AI, I’m currently pursuing an <strong>MSc in Business Analytics at UCL</strong>. I’m especially interested in building products powered by machine learning and automation — tools that not only solve problems, but scale with purpose.</p>
+                    <p>With a background that blends business, tech, and a growing passion for AI, I'm currently pursuing an <strong>MSc in Business Analytics at UCL</strong>. I'm especially interested in building products powered by machine learning and automation — tools that not only solve problems, but scale with purpose.</p>
         
                     <p>I thrive in international, multicultural, and multidisciplinary teams, where diverse perspectives lead to better ideas and stronger products. I believe in continuous learning, sharing knowledge, and creating spaces where people can grow together — including myself.</p>
         
@@ -1011,11 +1011,11 @@ footer {
     <div class="about-content">
         <p>Over 6 years at <strong>P&G</strong>, I progressed from a Sales Intern to a <strong>Senior Digital Product Owner</strong>, driving transformation across <strong>retail operations, data analytics, and digital product development</strong>. My path has taken me from business-facing roles into technology — allowing me to grow into a <strong>translator between commercial strategy and technical execution</strong>.</p>
 
-        <p>Along the way, I’ve led initiatives in <strong>automation, data operations, and mobile app development</strong>, always focusing on creating scalable, user-centric solutions. I’m passionate about working in <strong>cross-functional, multicultural teams</strong>, aligning stakeholders, and building products that make a real impact.</p>
+        <p>Along the way, I've led initiatives in <strong>automation, data operations, and mobile app development</strong>, always focusing on creating scalable, user-centric solutions. I'm passionate about working in <strong>cross-functional, multicultural teams</strong>, aligning stakeholders, and building products that make a real impact.</p>
 
-        <p>Currently, I’m exploring <strong>Product Manager</strong> roles — especially in <strong>B2B SaaS, analytics platforms, or retail tech</strong>. I'm particularly interested in companies leveraging <strong>AI and data to drive smarter decisions</strong> and improve everyday workflows.</p>
+        <p>Currently, I'm exploring <strong>Product Manager</strong> roles — especially in <strong>B2B SaaS, analytics platforms, or retail tech</strong>. I'm particularly interested in companies leveraging <strong>AI and data to drive smarter decisions</strong> and improve everyday workflows.</p>
 
-        <p>If you’re building something exciting or looking for someone who can bridge business needs and tech delivery, I’d love to connect.</p>
+        <p>If you're building something exciting or looking for someone who can bridge business needs and tech delivery, I'd love to connect.</p>
 
         <div class="highlight-stats">
             <div class="stat-item">
@@ -1063,7 +1063,7 @@ footer {
 
             <div class="learning-item">
                 <h3>🎯 Strategy</h3>
-                <p>From defining user needs to prioritizing features, I enjoy shaping products that balance business impact with user value. I’ve led strategic initiatives across Chile, Peru, and Colombia — and more recently, I’ve applied the same mindset to develop this GitHub page as a personal digital product.</p>
+                <p>From defining user needs to prioritizing features, I enjoy shaping products that balance business impact with user value. I've led strategic initiatives across Chile, Peru, and Colombia — and more recently, I've applied the same mindset to develop this GitHub page as a personal digital product.</p>
                 <span class="learning-date">6+ Years Supporting Strategy & Delivery</span>
             </div>
 
@@ -1121,7 +1121,7 @@ footer {
 
             <div class="learning-item">
                 <h3>🌐 Automation & APIs</h3>
-                <p>I’m developing automation and system integration skills using tools like N8N, APIs, and webhook flows. These help streamline processes, and I’m currently exploring how they can improve user experience and backend efficiency — including in projects like this portfolio site.</p>
+                <p>I'm developing automation and system integration skills using tools like N8N, APIs, and webhook flows. These help streamline processes, and I'm currently exploring how they can improve user experience and backend efficiency — including in projects like this portfolio site.</p>
                 <span class="learning-date">Hands-On Integration Work – 2025 Projects</span>
             </div>
 
@@ -1528,11 +1528,25 @@ footer {
             document.getElementById('typingIndicator').style.display = 'none';
         }
 
+        // Enhanced function to track chatbot interactions
+        function trackChatbotInteraction(question, isQuickQuestion = false) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'chatbot_interaction', {
+                    'question_type': isQuickQuestion ? 'quick_question' : 'typed_question',
+                    'question_text': question.substring(0, 100), // Limit to 100 chars for privacy
+                    'event_category': 'engagement'
+                });
+            }
+        }
+
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
             
             if (message === '') return;
+            
+            // Track the chatbot interaction
+            trackChatbotInteraction(message, false);
             
             // Add user message
             addMessage(message, true);
@@ -1551,6 +1565,10 @@ footer {
 
         function askQuestion(question) {
             document.getElementById('chatInput').value = question;
+            
+            // Track quick question interaction
+            trackChatbotInteraction(question, true);
+            
             sendMessage();
         }
 
@@ -1560,8 +1578,40 @@ footer {
             }
         }
 
+        // Enhanced tracking setup
+        function setupScrollTracking() {
+            const sections = document.querySelectorAll('section[id]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionName = entry.target.id;
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'section_view', {
+                                'section_name': sectionName,
+                                'event_category': 'navigation'
+                            });
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            sections.forEach(section => observer.observe(section));
+        }
+
         // Initialize chatbot
         document.addEventListener('DOMContentLoaded', function() {
+            // Setup enhanced tracking
+            setupScrollTracking();
+            
+            // Track initial page load
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'portfolio_visit', {
+                    'visit_timestamp': new Date().toISOString(),
+                    'user_agent': navigator.userAgent.substring(0, 100),
+                    'referrer': document.referrer || 'direct'
+                });
+            }
+
             // Auto-scroll to chat messages when chatbot section is visible
             const chatSection = document.getElementById('chatbot');
             const observer = new IntersectionObserver((entries) => {
@@ -1572,10 +1622,7 @@ footer {
                 });
             });
             observer.observe(chatSection);
-        });
 
-        // Add some visual enhancements
-        document.addEventListener('DOMContentLoaded', function() {
             // Animate skill tags on hover
             const skillTags = document.querySelectorAll('.skill-tag, .tech-tag, .course-tag');
             skillTags.forEach(tag => {
@@ -1597,9 +1644,8 @@ footer {
                     this.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
                 });
             });
-        });
 
-            // Add this inside your existing DOMContentLoaded function
+            // Enhanced PM button tracking
             const pmButton = document.querySelector('.pm-button');
             if (pmButton) {
                 pmButton.addEventListener('mouseenter', function() {
@@ -1608,8 +1654,19 @@ footer {
                 pmButton.addEventListener('mouseleave', function() {
                     this.style.boxShadow = 'none';
                 });
+                
+                pmButton.addEventListener('click', function() {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'detailed_experience_click', {
+                            'button_text': 'View Detailed Experience',
+                            'event_category': 'navigation',
+                            'event_label': 'experience_page'
+                        });
+                    }
+                });
             }   
-            // Track CV Download
+
+            // Enhanced CV Download Tracking
             const cvButtons = document.querySelectorAll('.cv-button');
             cvButtons.forEach(button => {
                 button.addEventListener('mouseenter', function() {
@@ -1619,25 +1676,151 @@ footer {
                     this.style.boxShadow = 'none';
                 });
                 
-                // Track downloads (optional)
-                button.addEventListener('click', function() {
-                    const language = this.textContent.includes('English') ? 'English' : 'Spanish';
-                    console.log(`CV downloaded in ${language}`);
-                    // You can add Google Analytics tracking here if you have it
+                button.addEventListener('click', function(e) {
+                    const buttonText = this.textContent.trim();
+                    const linkUrl = this.href;
+                    
+                    // Determine the type of button clicked
+                    let buttonType = 'unknown';
+                    let language = '';
+                    let fileName = '';
+                    
+                    if (linkUrl && linkUrl.includes('.pdf')) {
+                        // This is a CV download
+                        buttonType = 'cv_download';
+                        language = buttonText.includes('English') ? 'English' : 
+                                  buttonText.includes('Spanish') ? 'Spanish' : 'Unknown';
+                        fileName = linkUrl.split('/').pop();
+                        
+                        // Google Analytics 4 Event Tracking for CV downloads
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'file_download', {
+                                'file_name': fileName,
+                                'file_language': language,
+                                'file_type': 'CV/Resume',
+                                'download_source': 'portfolio_site'
+                            });
+                            
+                            // Additional detailed event
+                            gtag('event', 'cv_download', {
+                                'cv_language': language,
+                                'cv_filename': fileName,
+                                'event_category': 'engagement',
+                                'event_label': `CV_${language}`,
+                                'value': 1
+                            });
+                        }
+                        
+                        // Optional: Track to dataLayer directly
+                        if (typeof dataLayer !== 'undefined') {
+                            dataLayer.push({
+                                'event': 'cv_download',
+                                'cv_language': language,
+                                'cv_filename': fileName,
+                                'download_timestamp': new Date().toISOString()
+                            });
+                        }
+                        
+                        console.log(`CV downloaded: ${language} (${fileName})`);
+                        
+                    } else if (linkUrl && (linkUrl.includes('analytics.html') || buttonText.includes('Dashboard'))) {
+                        // Analytics dashboard click
+                        buttonType = 'analytics_dashboard';
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'analytics_dashboard_view', {
+                                'button_text': buttonText,
+                                'event_category': 'engagement',
+                                'event_label': 'looker_studio_dashboard'
+                            });
+                        }
+                        
+                    } else if (linkUrl && linkUrl.includes('github.com')) {
+                        // GitHub project link
+                        buttonType = 'github_project';
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'external_link_click', {
+                                'link_text': buttonText,
+                                'link_url': linkUrl,
+                                'link_type': 'GitHub',
+                                'event_category': 'engagement'
+                            });
+                        }
+                        
+                    } else if (linkUrl && linkUrl.includes('notion.so')) {
+                        // Notion project board
+                        buttonType = 'notion_board';
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'external_link_click', {
+                                'link_text': buttonText,
+                                'link_url': linkUrl,
+                                'link_type': 'Notion',
+                                'event_category': 'engagement'
+                            });
+                        }
+                        
+                    } else if (buttonText.includes('Chatbot') || linkUrl.includes('#chatbot')) {
+                        // Chatbot navigation
+                        buttonType = 'chatbot_navigation';
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'chatbot_navigation', {
+                                'navigation_source': 'skills_section',
+                                'event_category': 'navigation'
+                            });
+                        }
+                    }
+                    
+                    console.log(`Button clicked: ${buttonType} - ${buttonText}`);
                 });
             });
 
+            // Track external project links
+            const projectLinks = document.querySelectorAll('a[href*="github.com"], a[href*=".ipynb"], a[href*="notion.so"]');
+            projectLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const linkText = this.textContent.trim();
+                    const linkUrl = this.href;
+                    
+                    let linkType = 'external';
+                    if (linkUrl.includes('github')) linkType = 'GitHub';
+                    else if (linkUrl.includes('notion')) linkType = 'Notion';
+                    else if (linkUrl.includes('.ipynb')) linkType = 'Jupyter';
+                    
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'external_link_click', {
+                            'link_text': linkText.substring(0, 100),
+                            'link_url': linkUrl,
+                            'link_type': linkType,
+                            'event_category': 'engagement'
+                        });
+                    }
+                    
+                    console.log(`External link clicked: ${linkType} - ${linkText}`);
+                });
+            });
 
-
-
-
-
-        
-</script>
-
-    
-
-    
-    
+            // Track social links in header
+            const socialLinks = document.querySelectorAll('.social-links a, .contact-info a');
+            socialLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const linkText = this.textContent.trim();
+                    const linkUrl = this.href;
+                    
+                    let linkType = 'contact';
+                    if (linkUrl.includes('linkedin')) linkType = 'LinkedIn';
+                    else if (linkUrl.includes('mailto')) linkType = 'Email';
+                    else if (linkUrl.includes('tel')) linkType = 'Phone';
+                    
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'contact_click', {
+                            'contact_method': linkType,
+                            'event_category': 'contact'
+                        });
+                    }
+                    
+                    console.log(`Contact link clicked: ${linkType}`);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
